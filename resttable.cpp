@@ -2,7 +2,7 @@
 
 #include <QtWidgets>
 #include "resttable.h"
-#include "messagebox.h"
+#include "ordermenu.h"
 
 int RestTable::totalTables(0);
 
@@ -53,5 +53,6 @@ void RestTable::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 void RestTable::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
-    MessageBox *showBox = new MessageBox(QWidget *widget);
+    OrderMenu *showBox = new OrderMenu();
+    showBox->exec();
 }
