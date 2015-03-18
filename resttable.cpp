@@ -53,6 +53,6 @@ void RestTable::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 void RestTable::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
-    OrderMenu *showBox = new OrderMenu();
+    OrderMenu *showBox = new OrderMenu(tableID);
     showBox->exec();
 }

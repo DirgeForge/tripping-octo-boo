@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
     view.setRenderHint(QPainter::Antialiasing);
     view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
     view.setBackgroundBrush(QColor(238, 238, 238));
-    view.setWindowTitle("Drag and Drop Robot");
+    view.setWindowTitle("Pirate Soft POS UI Prototype");
      view.show();
 
 

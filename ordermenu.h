@@ -12,10 +12,11 @@ class OrderMenu : public QDialog
     Q_OBJECT
 
 public:
-    explicit OrderMenu(QWidget *parent = 0);
+    explicit OrderMenu(int num, QWidget *parent = 0);
     ~OrderMenu();
 
 private:
+    int tableNum;
     Ui::OrderMenu *ui;
 };
 
