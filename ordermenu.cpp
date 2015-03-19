@@ -6,8 +6,9 @@ OrderMenu::OrderMenu(int num, QWidget *parent) : tableNum(num),
     ui(new Ui::OrderMenu)
 {
     ui->setupUi(this);
-    QString qStr = QString::number(tableNum);
+    QString qStr ="Table: " + QString::number(tableNum);
     ui->displayTableNumber->setText(qStr);
+    ui->displayTableNumber_2->setText(qStr);
 }
 
 OrderMenu::~OrderMenu()

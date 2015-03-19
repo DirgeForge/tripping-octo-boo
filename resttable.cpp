@@ -16,7 +16,7 @@ RestTable::RestTable() : color(255, 255, 204)
 
 QRectF RestTable::boundingRect() const
 {
-    return QRectF(0, 0, 95, 65);
+    return QRectF(0, 0, 155, 105);
 }
 void RestTable::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
@@ -24,7 +24,7 @@ void RestTable::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
     Q_UNUSED(widget);
     painter->setPen(QPen(Qt::black, 1));
     painter->setBrush(QBrush(color));
-    painter->drawRoundedRect(0,0,90,60,25,25, Qt::RelativeSize);
+    painter->drawRoundedRect(0,0,150,100,25,25, Qt::RelativeSize);
     painter->setPen(QPen(Qt::red, 2));
     painter->setFont(QFont("Times", 10, QFont::Bold));
     painter->drawText(40,35,QString::number(tableID));

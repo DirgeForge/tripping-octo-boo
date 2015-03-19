@@ -25,14 +25,15 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-    QGraphicsScene scene(-400, -300, 800, 600);
+    QGraphicsScene scene(-600, -450, 1200, 900);
+
 
     for(int i = 0; i < 4; i++)
     {
         for(int j = 0; j< 4; j++)
         {
             RestTable *tableItem = new RestTable;
-            tableItem->setPos(-100 + (j*110), -20 + (i*80));
+            tableItem->setPos(-100 + (j*170), -80 + (i*120));
             scene.addItem(tableItem);
         }
     }
