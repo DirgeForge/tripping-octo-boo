@@ -1,9 +1,9 @@
 #include <QtWidgets>
 
-
-
 #include "resttable.h"
 #include "ordermenu.h"
+#include "employeemenu.h"
+#include "systemmenu.h"
 
 #include <math.h>
 
@@ -20,13 +20,8 @@ protected:
     }
 };
 
-int main(int argc, char *argv[])
+void loadRestaurant(QGraphicsScene &scene)
 {
-    QApplication app(argc, argv);
-
-    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-    QGraphicsScene scene(-600, -450, 1200, 900);
-
 
     for(int i = 0; i < 4; i++)
     {
@@ -38,12 +33,35 @@ int main(int argc, char *argv[])
         }
     }
 
+    EmployeeMenu *employeeIcon = new EmployeeMenu(QColor(52, 183, 14));
+    employeeIcon->setPos(400,-300);
+    scene.addItem(employeeIcon);
+
+    SystemMenu *systemIcon = new SystemMenu(QColor(252, 183, 214));
+    systemIcon->setPos(200, -300);
+    scene.addItem(systemIcon);
+
+
+
+}
+
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+
+    qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
+    QGraphicsScene scene(-600, -450, 1200, 900);
+
+    loadRestaurant(scene);
+
     GraphicsView view(&scene);
     view.setRenderHint(QPainter::Antialiasing);
     view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+    view.fitInView(scene.sceneRect());
     view.setBackgroundBrush(QColor(238, 238, 238));
+
     view.setWindowTitle("Pirate Soft POS UI Prototype");
-     view.show();
+    view.show();
 
 
     return app.exec();

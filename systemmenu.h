@@ -1,0 +1,34 @@
+#ifndef SYSTEMICON_H
+#define SYSTEMICON_H
+
+
+#include <QGraphicsItem>
+#include <QDialog>
+
+namespace Ui {
+class SystemMenu;
+}
+
+class SystemMenu : public QDialog, public QGraphicsItem
+{
+    Q_OBJECT
+
+public:
+    SystemMenu(QColor);
+    explicit SystemMenu(QWidget *parent = 0);
+
+    QRectF boundingRect() const Q_DECL_OVERRIDE;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) Q_DECL_OVERRIDE;
+
+    ~SystemMenu();
+
+protected:
+    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) Q_DECL_OVERRIDE;
+
+private:
+    Ui::SystemMenu *ui;
+    QColor color;
+};
+
+
+#endif // SYSTEMICON_H

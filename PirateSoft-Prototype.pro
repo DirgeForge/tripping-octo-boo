@@ -11,11 +11,17 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     resttable.cpp \
-    ordermenu.cpp
+    ordermenu.cpp \
+    employeemenu.cpp \
+    systemmenu.cpp
 
 HEADERS  += \
     resttable.h \
-    ordermenu.h
+    ordermenu.h \
+    employeemenu.h \
+    systemmenu.h
 
 FORMS    += \
-    messagebox.ui
+    messagebox.ui \
+    employeemenu.ui \
+    systemmenu.ui
