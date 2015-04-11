@@ -18,10 +18,15 @@ private:
 	std::string title;
 	std::string description;
 	std::string category;
+	std::string imgpath;
+
+	int price;
+	bool inSeason;
 
 public:
 	Item();
-	Item(std::string, std::string, std::string);
+	Item(const std::string&, const std::string&, 
+		const std::string&, const std::string&);
 	virtual ~Item() = 0;
 
 	void setTitle(std::string);

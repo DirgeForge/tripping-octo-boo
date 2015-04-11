@@ -4,8 +4,9 @@ FoodItem::FoodItem() : Item::Item()
 {
 }
 
-FoodItem::FoodItem(std::string title, std::string desc, std::string category)
-: Item::Item(title, desc, category)
+FoodItem::FoodItem(const std::string & title, const std::string & desc, 
+	const std::string & category, const std::string & imgpath)
+: Item::Item(title, desc, category, imgpath)
 {
 }
 

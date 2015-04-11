@@ -10,7 +10,7 @@ private:
 	std::vector<std::string> allergens;
 public:
 	FoodItem();
-	FoodItem(std::string, std::string, std::string);
+	FoodItem(const std::string &, const std::string &, const std::string &, const std::string &);
 	~FoodItem();
 };
 

@@ -1,12 +1,13 @@
 #include "../include/item.h"
 
-Item::Item() : title("n/a"), description("n/a")
+Item::Item() : title("n/a"), description("n/a"), category("n/a"), imgpath("n/a")
 {
 
 }
 
-Item::Item(std::string title, std::string desc, std::string category) 
-: title(title), description(desc), category(category)
+Item::Item(const std::string & title, const std::string & desc, 
+	const std::string & category, const std::string & imgpath) 
+: title(title), description(desc), category(category), imgpath(imgpath)
 {
 
 }
@@ -15,6 +16,7 @@ Item::~Item()
 {
 }
 
+// ---- setters -------------------------------------------
 void Item::setTitle(std::string s)
 {
 	title = s;
@@ -30,6 +32,7 @@ void Item::setCategory(std::string s)
 	category = s;
 }
 
+// ---- getters -------------------------------------------
 std::string Item::getTitle() const
 {
 	return title;
