@@ -25,7 +25,10 @@ RestTable::RestTable(bool setBooth) : color(166, 45, 13)
 
 QRectF RestTable::boundingRect() const
 {
-    return QRectF(0, 0, 205, 135);
+    if (isBooth)
+        return QRectF(0, 0, 205, 135);
+    else
+        return QRectF(0, 0, 160, 85);
 }
 void RestTable::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
@@ -40,7 +43,7 @@ void RestTable::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
         painter->drawRect(150,0,25,129);
         painter->drawRect(0,104,175,25);
 
-        //draws booth set
+        //draws booth seat
         painter->setPen(QColor(136,28,31));
         painter->setBrush(QColor(136,28,31));
         painter->drawRoundedRect(5,5,160,15,10,10, Qt::RelativeSize);
@@ -73,13 +76,40 @@ void RestTable::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void RestTable::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
-    if  (isBooth)
+
+    if  (isBooth)       //does nothing if the object is a booth since they unmoveable
         return;
-    else if (QLineF(event->screenPos(), event->buttonDownScreenPos(Qt::LeftButton))
+
+    //Collision Detection on tables, if the table is touching another object movement stops until
+    //the whole object is clear of the colliding object.
+
+    QList<QGraphicsItem *> list = collidingItems();
+    if(!list.isEmpty())
+    {
+        setPos(event->screenPos());
+        list.clear();
+        list = collidingItems();
+        if(list.isEmpty())
+        {
+            prevPoint = event->screenPos();
+            return;
+        }
+        else
+        {
+            setPos(prevPoint);
+            return;
+        }
+    }
+
+    //checks for table movement if no movement the function returns
+    if (QLineF(event->screenPos(), event->buttonDownScreenPos(Qt::LeftButton))
             .length() < QApplication::startDragDistance()) {
             return;
         }
+
     setPos(event->scenePos());
+    prevPoint = event->scenePos();
+
 }
 
 void RestTable::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)

@@ -14,6 +14,7 @@
 
 #include<QGraphicsItem>
 
+
 class RestTable : public QGraphicsItem
 {
 public:
@@ -35,6 +36,7 @@ private:
     int tableID;
     QColor color;
     bool isBooth;
+    QPointF prevPoint;
 };
 
 

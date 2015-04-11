@@ -35,13 +35,15 @@ void loadRestaurant(QGraphicsScene &scene)
     //place tables
     for(int i = 0; i < 4; i++)
     {
-        for(int j = 0; j< 4; j++)
+        for(int j = 0; j< 3; j++)
         {
             tableItem = new RestTable;
-            tableItem->setPos(100 + (j*170), 80 + (i*120));
+            tableItem->setPos(700 + (j*200), (.15*screen_height) + (i*120));
             scene.addItem(tableItem);
         }
     }
+
+
 
     //place booths
     for(int i = 0; i < 6; i++)
@@ -52,9 +54,25 @@ void loadRestaurant(QGraphicsScene &scene)
         scene.addItem(tableItem);
     }
 
+    for(int i = 0; i < 4; i++)
+    {
+        tableItem = new RestTable(true);
+        tableItem->setPos( screen_width - 500 , (.15*screen_height) + (130*i));
+        scene.addItem(tableItem);
+    }
+
+    //add patio tables
+    for(int i = 0; i < 3; i++)
+    {
+        tableItem = new RestTable;
+        tableItem->setPos(screen_width-150, (.15 * screen_height + (220 * i)));
+        tableItem->setRotation(90);
+        scene.addItem(tableItem);
+    }
+
+
     //menu bar at bottom
     scene.addRect(-50,screen_height-150,screen_width+100,200,QPen(QColor(98,177,109)),QBrush(QColor(98,177,109)));
-
 
 
     //place icons
@@ -84,8 +102,11 @@ int main(int argc, char *argv[])
     GraphicsView view(&scene);
     view.setRenderHint(QPainter::Antialiasing);
     view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-    //view.showFullScreen();
-    //view.fitInView(scene.sceneRect());
+
+    view.showFullScreen();
+    view.fitInView(scene.sceneRect());
+
+
     view.setBackgroundBrush(QColor(238, 238, 238));
 
 
