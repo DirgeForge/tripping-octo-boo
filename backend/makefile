@@ -1,23 +1,26 @@
 SRC = src
 INC = include
-OBJ = obj
+TEST = tests/main.cpp
+DEST = bin/canary
 SRCS := $(shell echo $(SRC)/*.cpp)
 INCS := $(shell echo $(INC)/*.h)
-OBJS = $(SRCS:$(SRC)/%.cpp=$(OBJ)/%.o)
+OBJS = $(SRCS:$(SRC)/%.cpp=%.o)
+
 
 CC = g++
 DEBUG = -g
 CFLAGS = -Wall -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
-DEST = canary
 
-$(OBJS):$(OBJ)/%.o: $(SRC)/%.cpp $(INC)/%.h
-	$(CC) $(LFLAGS) -v $(SRCS)
+all: $(OBJS)
 
-#p1 : $(OBJS)
-#	$(CC) $(LFLAGS) $(OBJS) -o p1
+test: $(OBJS) $(TEST)
+	$(CC) $(LFLAGS) $(TEST) -o $(DEST)
+
+$(OBJS):%.o: $(SRC)/%.cpp $(INC)/%.h
+	$(CC) $(CFLAGS) $< -o $@
 
 clean:
-	\rm src/*.o tests/*.o bin/*
+	\rm src/*.o tests/*.o bin/* *.o
 
 

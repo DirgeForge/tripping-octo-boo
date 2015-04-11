@@ -24,7 +24,7 @@ private:
 	DiningMenu& operator=(const DiningMenu&);
 
 public:
-	DiningMenu * getInstance();
+	static DiningMenu * getInstance();
 
 	void add(Item *);
 	void remove(Item *);

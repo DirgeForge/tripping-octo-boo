@@ -1,5 +1,6 @@
 #include "../include/diningmenu.h"
 #include "../include/fooditem.h"
+#include <iostream>
 
 int main()
 {
@@ -9,9 +10,9 @@ int main()
 		DiningMenu::getInstance()->add(dish);
 	}
 
-	for (int i = 0; i < DiningMenu::getInstance()->size(); i++)
+	for (int i = 0; i < DiningMenu::getInstance()->getSize(); i++)
 	{
-		cout << DiningMenu::getInstance()->at(i)->getTitle() << " ";
+		std::cout << DiningMenu::getInstance()->at(i)->getTitle() << " ";
 	}
 
 
