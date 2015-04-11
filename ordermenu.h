@@ -1,6 +1,16 @@
 #ifndef ORDERMENU_H
 #define ORDERMENU_H
 
+/*
+ * TEMP MENU ORDER UI
+ *
+ * can be edited to match approved ui or replaced
+ * not sure which is easier
+ *
+ * ui is edited by using the messagebox.ui file
+ *
+ */
+
 #include <QDialog>
 
 namespace Ui {

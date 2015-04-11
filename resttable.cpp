@@ -43,8 +43,8 @@ void RestTable::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
         //draws booth set
         painter->setPen(QColor(136,28,31));
         painter->setBrush(QColor(136,28,31));
-        painter->drawRect(5,5,160,15);
-        painter->drawRect(5,109,160,15);
+        painter->drawRoundedRect(5,5,160,15,10,10, Qt::RelativeSize);
+        painter->drawRoundedRect(5,109,160,15,10,10, Qt::RelativeSize);
 
         //draws table
         painter->setPen(QPen(Qt::black, 6));

@@ -21,7 +21,11 @@ protected:
 };
 
 
-
+/*
+ * Loads the whole restruant layout
+ *
+ *
+ */
 void loadRestaurant(QGraphicsScene &scene)
 {
     int screen_width = QApplication::desktop()->width();
@@ -48,7 +52,7 @@ void loadRestaurant(QGraphicsScene &scene)
         scene.addItem(tableItem);
     }
 
-    //menu box
+    //menu bar at bottom
     scene.addRect(-50,screen_height-150,screen_width+100,200,QPen(QColor(98,177,109)),QBrush(QColor(98,177,109)));
 
 

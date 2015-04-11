@@ -1,6 +1,17 @@
 #ifndef RESTTABLE_H
 #define RESTTABLE_H
 
+/*
+ * Creates the image and controls the action
+ * of the tables and booths in the restruant.
+ *
+ * Actual image is created with paint function.
+ *
+ * should be modified to hold orders ?
+ *
+ */
+
+
 #include<QGraphicsItem>
 
 class RestTable : public QGraphicsItem

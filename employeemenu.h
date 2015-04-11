@@ -1,6 +1,14 @@
 #ifndef EMPLOYEEMENU_H
 #define EMPLOYEEMENU_H
 
+/*  Controls UI for employee menu and icon
+ *
+ *
+ *
+ * ui is edited by using the employeemenu.ui file
+ *
+ */
+
 #include <QDialog>
 #include <QGraphicsItem>
 

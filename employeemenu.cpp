@@ -36,7 +36,7 @@ void EmployeeMenu::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
     EmployeeMenu *showBox = new EmployeeMenu();
-    showBox->exec();
+    showBox->exec();   //Launches the UI
 }
 
 EmployeeMenu::~EmployeeMenu()

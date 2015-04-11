@@ -34,7 +34,7 @@ void SystemMenu::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
     SystemMenu *showBox = new SystemMenu();
-    showBox->exec();
+    showBox->exec();  //Launches the UI
 }
 
 SystemMenu::~SystemMenu()

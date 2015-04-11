@@ -1,6 +1,14 @@
 #ifndef SYSTEMICON_H
 #define SYSTEMICON_H
 
+/*  Controls UI for system menu and icon
+ *
+ *
+ *
+ * ui is edited by using the systemmenu.ui file
+ *
+ */
+
 
 #include <QGraphicsItem>
 #include <QDialog>
