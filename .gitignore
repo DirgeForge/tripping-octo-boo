@@ -41,3 +41,8 @@ Thumbs.db
 *.pro.user
 *.pro.user.d*
 *.pro.user.*
+
+# dir #
+#######
+bin/
+obj/
