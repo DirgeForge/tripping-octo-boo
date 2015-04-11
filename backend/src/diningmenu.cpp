@@ -10,6 +10,10 @@ DiningMenu::DiningMenu(const DiningMenu & other)
 }
 DiningMenu& DiningMenu::operator=(const DiningMenu & other)
 {
+	return *this;
+}
+DiningMenu::~DiningMenu()
+{
 }
 
 /** ---- getInstance ----
@@ -60,4 +64,9 @@ int DiningMenu::getSize() const
 int DiningMenu::getCapacity() const
 {
 	return items.capacity();
+}
+
+Item * DiningMenu::at(int n)
+{
+	return items.at(n);
 }

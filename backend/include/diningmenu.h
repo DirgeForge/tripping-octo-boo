@@ -2,6 +2,7 @@
 #define DININGMENU_H
 
 #include "item.h"
+#include "imenu.h"
 #include <vector>
 
 /**
@@ -13,7 +14,7 @@
 *
 * ---------------------------------------------------------
 */
-class DiningMenu : public Item
+class DiningMenu
 {
 private:
 	static DiningMenu * inst;
@@ -22,6 +23,7 @@ private:
 	DiningMenu();
 	DiningMenu(const DiningMenu&);
 	DiningMenu& operator=(const DiningMenu&);
+	~DiningMenu();
 
 public:
 	static DiningMenu * getInstance();
