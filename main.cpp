@@ -20,25 +20,46 @@ protected:
     }
 };
 
+
+
 void loadRestaurant(QGraphicsScene &scene)
 {
+    int screen_width = QApplication::desktop()->width();
+    int screen_height = QApplication::desktop()->height();
+    RestTable *tableItem;
 
+    //place tables
     for(int i = 0; i < 4; i++)
     {
         for(int j = 0; j< 4; j++)
         {
-            RestTable *tableItem = new RestTable;
-            tableItem->setPos(-100 + (j*170), -80 + (i*120));
+            tableItem = new RestTable;
+            tableItem->setPos(100 + (j*170), 80 + (i*120));
             scene.addItem(tableItem);
         }
     }
 
-    EmployeeMenu *employeeIcon = new EmployeeMenu(QColor(52, 183, 14));
-    employeeIcon->setPos(400,-300);
+    //place booths
+    for(int i = 0; i < 6; i++)
+    {
+        tableItem = new RestTable(true);
+        tableItem->setPos(700+(130*i) , screen_height - 360);
+        tableItem->setRotation(90);
+        scene.addItem(tableItem);
+    }
+
+    //menu box
+    scene.addRect(-50,screen_height-150,screen_width+100,200,QPen(QColor(98,177,109)),QBrush(QColor(98,177,109)));
+
+
+
+    //place icons
+    EmployeeMenu *employeeIcon = new EmployeeMenu(QColor(86,195,51));
+    employeeIcon->setPos(550,screen_height-125);
     scene.addItem(employeeIcon);
 
-    SystemMenu *systemIcon = new SystemMenu(QColor(252, 183, 214));
-    systemIcon->setPos(200, -300);
+    SystemMenu *systemIcon = new SystemMenu(QColor(86,195,51));
+    systemIcon->setPos(200,screen_height-125);
     scene.addItem(systemIcon);
 
 
@@ -48,19 +69,22 @@ void loadRestaurant(QGraphicsScene &scene)
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
+    int screen_width = QApplication::desktop()->width();
+    int screen_height = QApplication::desktop()->height();
 
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
-    QGraphicsScene scene(-600, -450, 1200, 900);
+    QGraphicsScene scene(0, 0, screen_width, screen_height);
 
     loadRestaurant(scene);
 
     GraphicsView view(&scene);
     view.setRenderHint(QPainter::Antialiasing);
     view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-    view.fitInView(scene.sceneRect());
+    //view.showFullScreen();
+    //view.fitInView(scene.sceneRect());
     view.setBackgroundBrush(QColor(238, 238, 238));
 
-    view.setWindowTitle("Pirate Soft POS UI Prototype");
+
     view.show();
 
 

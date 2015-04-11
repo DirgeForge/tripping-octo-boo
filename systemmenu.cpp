@@ -15,7 +15,7 @@ SystemMenu::SystemMenu(QColor color) : color(color)
 }
 QRectF SystemMenu::boundingRect() const
 {
-    return QRectF(0, 0, 155, 105);
+    return QRectF(0, 0, 300, 100);
 }
 
 void SystemMenu::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -24,9 +24,9 @@ void SystemMenu::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
     Q_UNUSED(widget);
     painter->setPen(QPen(Qt::black, 1));
     painter->setBrush(QBrush(color));
-    painter->drawEllipse(SystemMenu::boundingRect());
+    painter->drawRoundedRect(SystemMenu::boundingRect(), 25, 25, Qt::RelativeSize);
     painter->setPen(QPen(Qt::black, 2));
-    painter->setFont(QFont("Times", 10, QFont::Bold));
+    painter->setFont(QFont("Times", 20, QFont::Bold));
     painter->drawText(25, 55, "System Menu");
 }
 
