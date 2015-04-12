@@ -1,10 +1,10 @@
-SRC = src
-INC = include
-TEST = tests
-DEST = bin/canary
-SRCS := $(shell echo $(SRC)/*.cpp)
-INCS := $(shell echo $(INC)/*.h)
-OBJS = $(SRCS:$(SRC)/%.cpp=$(SRC)/%.o)
+SRCDIR = src
+INCDIR = include
+TESTDIR = tests
+DESTF = bin/canary
+SRCS = $(wildcard $(SRCDIR)/*.cpp)
+INCS = $(wildcard $(INCDIR)/*.h)
+OBJS = $(SRCS:$(SRCDIR)/%.cpp=$(SRCDIR)/%.o)
 
 
 CC = g++
@@ -13,10 +13,9 @@ CFLAGS = -Wall -c $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
 
 all: $(OBJS) main.o
-	$(CC) $(LFLAGS) tests/main.cpp -o $(DEST)
+	$(CC) $(LFLAGS) tests/main.cpp -o $(DESTF)
 
-#$(OBJS):%.o: $(SRC)/%.cpp $(INC)/%.h
-$(OBJS):%.o: $(SRCS) $(INCS)
+$(SRCS):%.o: $(SRCDIR)/%.cpp $(INCDIR)/%.h
 	$(CC) $(CFLAGS) $< -o $@
 
 main.o: tests/main.cpp $(INCS)
