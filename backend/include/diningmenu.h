@@ -1,7 +1,7 @@
 #ifndef DININGMENU_H
 #define DININGMENU_H
 
-
+#include "item.h"
 #include "imenu.h"
 #include <vector>
 
@@ -28,11 +28,11 @@ private:
 public:
 	static DiningMenu * getInstance();
 
-	void add(Item *) override;
+	void add(Item *);
 	void remove(Item *);
-	Item * at(int) const override;
+	Item * at(int);
 
-	int getSize() const override;
+	int getSize() const;
 	int getCapacity() const;
 };
 
