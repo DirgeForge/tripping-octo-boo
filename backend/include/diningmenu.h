@@ -14,7 +14,7 @@
 *
 * ---------------------------------------------------------
 */
-class DiningMenu
+class DiningMenu : public IMenu
 {
 private:
 	static DiningMenu * inst;

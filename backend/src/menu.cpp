@@ -1,13 +1,13 @@
 #include "../include/menu.h"
 #include "../include/diningmenu.h"
 
-Menu::Menu() : menu(NULL)
+Menu::Menu()
 {
 }
 
 void Menu::toFood()
 {
-	menu.reset(DiningMenu::getInstance());
+	menu = DiningMenu::getInstance();
 }
 
 void Menu::toDrinks()
@@ -30,7 +30,7 @@ int Menu::getSize() const
 	return menu->getSize();
 }
 
-std::string getCat() const
+std::string Menu::getCat() const
 {
 	return "to be implemented";
 }

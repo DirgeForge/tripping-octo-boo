@@ -46,3 +46,10 @@ Thumbs.db
 #######
 bin/
 obj/
+Debug/
+
+# visual studio #
+#################
+*.sdf
+*.user
+*.suo

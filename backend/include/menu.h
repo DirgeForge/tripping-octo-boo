@@ -4,7 +4,7 @@
 class Menu : public IMenu
 {
 private:
-	static shared_ptr<IMenu> menu;
+	static IMenu * menu;
 	Menu(const Menu&);
 	Menu& operator=(const Menu&);
 
