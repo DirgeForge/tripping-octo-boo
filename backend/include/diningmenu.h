@@ -28,11 +28,11 @@ private:
 public:
 	static DiningMenu * getInstance();
 
-	void add(Item *);
-	void remove(Item *);
-	Item * at(int);
-
-	int getSize() const;
+	void add(Item *) override;
+	void remove(Item *) override;
+	Item * at(int) const override;
+	std::string getCat() const override;
+	int getSize() const override;
 	int getCapacity() const;
 };
 

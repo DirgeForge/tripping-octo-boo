@@ -66,7 +66,12 @@ int DiningMenu::getCapacity() const
 	return items.capacity();
 }
 
-Item * DiningMenu::at(int n)
+Item * DiningMenu::at(int n) const
 {
 	return items.at(n);
+}
+
+std::string DiningMenu::getCat() const
+{
+	return "TBE";
 }

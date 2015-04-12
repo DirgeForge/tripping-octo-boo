@@ -16,6 +16,7 @@ public:
 
 	Item * at(int) const override;
 	void add(Item *) override;
+	void remove(Item *) override;
 	int getSize() const override;
 	std::string getCat() const override;
 };

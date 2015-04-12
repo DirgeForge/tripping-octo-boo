@@ -24,6 +24,10 @@ void Menu::add(Item * item)
 {
 	menu->add(item);
 }
+void Menu::remove(Item * item)
+{
+	menu->remove(item);
+}
 
 int Menu::getSize() const
 {
