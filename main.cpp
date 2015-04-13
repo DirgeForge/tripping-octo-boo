@@ -50,10 +50,10 @@ void loadRestaurant(QGraphicsScene &scene)
 
 
     //place booths
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < 5; i++)
     {
         tableItem = new RestTable(true);
-        tableItem->setPos(700+(130*i) , screen_height - 360);
+        tableItem->setPos(800+(130*i) , screen_height - 360);
         tableItem->setRotation(90);
         scene.addItem(tableItem);
     }
@@ -74,24 +74,25 @@ void loadRestaurant(QGraphicsScene &scene)
         scene.addItem(tableItem);
     }
 
-    //create bar, chairs not linked yet
+    //create bar
 
-    scene.addRect(100, screen_height-700,75,500,QPen(Qt::black,8),QBrush(QColor(89,102,251)));
+    scene.addRect(200, screen_height-700,75,500,QPen(Qt::black,8),QBrush(QColor(89,102,251)));
     for (int i = 0; i < 7; i++)
     {
         chairItem = new BarChair;
-        chairItem->setPos(200, (screen_height-690 + i*70));
+        chairItem->setPos(300, (screen_height-690 + i*70));
         scene.addItem(chairItem);
     }
+
     // Walls
-    scene.addRect(-50,screen_height-185,screen_width-270,35,QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
-    scene.addRect(screen_width-325,.15*screen_height-20,35,(screen_height-150)-(.15*screen_height-20),QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
-    scene.addRect(0,0,35,screen_height-150,QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
+    scene.addRect(-50,screen_height-185,screen_width-235,35,QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
+    scene.addRect(screen_width-325,.15*screen_height-20,35,(screen_height-300)-(.15*screen_height-20),QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
+    scene.addRect(-12,-12,35,screen_height-150,QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
+    scene.addRect(150,-12,screen_width-430,35,QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
 
 
     //menu bar at bottom
     scene.addRect(-50,screen_height-150,screen_width+100,200,QPen(QColor(98,177,109)),QBrush(QColor(98,177,109)));
-
 
     //place icons
     EmployeeMenu *employeeIcon = new EmployeeMenu(QColor(86,195,51));
@@ -121,8 +122,8 @@ int main(int argc, char *argv[])
     view.setRenderHint(QPainter::Antialiasing);
     view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
 
-    //view.showFullScreen();
-    //view.fitInView(scene.sceneRect());
+    view.showFullScreen();
+    view.fitInView(scene.sceneRect());
 
 
     view.setBackgroundBrush(QColor(238, 238, 238));
