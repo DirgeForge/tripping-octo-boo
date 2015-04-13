@@ -13,13 +13,15 @@ SOURCES += main.cpp \
     resttable.cpp \
     ordermenu.cpp \
     employeemenu.cpp \
-    systemmenu.cpp
+    systemmenu.cpp \
+    barchair.cpp
 
 HEADERS  += \
     resttable.h \
     ordermenu.h \
     employeemenu.h \
-    systemmenu.h
+    systemmenu.h \
+    barchair.h
 
 FORMS    += \
     messagebox.ui \

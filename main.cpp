@@ -4,6 +4,7 @@
 #include "ordermenu.h"
 #include "employeemenu.h"
 #include "systemmenu.h"
+#include "barchair.h"
 
 #include <math.h>
 
@@ -19,7 +20,9 @@ protected:
     {
     }
 };
-
+int screen_width;
+int screen_height;
+QList<RestTable*> tableList;
 
 /*
  * Loads the whole restruant layout
@@ -28,9 +31,9 @@ protected:
  */
 void loadRestaurant(QGraphicsScene &scene)
 {
-    int screen_width = QApplication::desktop()->width();
-    int screen_height = QApplication::desktop()->height();
+
     RestTable *tableItem;
+    BarChair *chairItem;
 
     //place tables
     for(int i = 0; i < 4; i++)
@@ -39,6 +42,7 @@ void loadRestaurant(QGraphicsScene &scene)
         {
             tableItem = new RestTable;
             tableItem->setPos(700 + (j*200), (.15*screen_height) + (i*120));
+            tableList.append(tableItem);
             scene.addItem(tableItem);
         }
     }
@@ -70,6 +74,20 @@ void loadRestaurant(QGraphicsScene &scene)
         scene.addItem(tableItem);
     }
 
+    //create bar, chairs not linked yet
+
+    scene.addRect(100, screen_height-700,75,500,QPen(Qt::black,8),QBrush(QColor(89,102,251)));
+    for (int i = 0; i < 7; i++)
+    {
+        chairItem = new BarChair;
+        chairItem->setPos(200, (screen_height-690 + i*70));
+        scene.addItem(chairItem);
+    }
+    // Walls
+    scene.addRect(-50,screen_height-185,screen_width-270,35,QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
+    scene.addRect(screen_width-325,.15*screen_height-20,35,(screen_height-150)-(.15*screen_height-20),QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
+    scene.addRect(0,0,35,screen_height-150,QPen(QColor(115,115,115)),QBrush(QColor(115,115,115)));
+
 
     //menu bar at bottom
     scene.addRect(-50,screen_height-150,screen_width+100,200,QPen(QColor(98,177,109)),QBrush(QColor(98,177,109)));
@@ -91,8 +109,8 @@ void loadRestaurant(QGraphicsScene &scene)
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
-    int screen_width = QApplication::desktop()->width();
-    int screen_height = QApplication::desktop()->height();
+    screen_width = QApplication::desktop()->width();
+    screen_height = QApplication::desktop()->height();
 
     qsrand(QTime(0,0,0).secsTo(QTime::currentTime()));
     QGraphicsScene scene(0, 0, screen_width, screen_height);
@@ -103,8 +121,8 @@ int main(int argc, char *argv[])
     view.setRenderHint(QPainter::Antialiasing);
     view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
 
-    view.showFullScreen();
-    view.fitInView(scene.sceneRect());
+    //view.showFullScreen();
+    //view.fitInView(scene.sceneRect());
 
 
     view.setBackgroundBrush(QColor(238, 238, 238));
