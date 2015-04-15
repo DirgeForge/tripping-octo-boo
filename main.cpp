@@ -8,14 +8,21 @@
 #include "editmenu.h"
 #include "additem.h"
 
-// --- includes for the backend:
+// --- includes for the backend ---
 #include "backend/include/menucontroller.h"
-// --- end includes for the backend
+#include "backend/include/menumodel.h"
+// --- end includes for the backend ---
 
 #include <math.h>
 
 class GraphicsView : public QGraphicsView
 {
+// --- control and model variables ---
+private:
+    MenuController * control;
+    MenuModel * model;
+// --- end variables for control and model ---
+
 public:
     GraphicsView(QGraphicsScene *scene) : QGraphicsView(scene)
     {
