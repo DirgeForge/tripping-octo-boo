@@ -15,7 +15,7 @@ private:
 
 public:
 	//MenuController(MenuModel*);
-	MenuController(MenuModel *);
+	MenuController(MenuModel *, IViewable *);
 	IItem * at(int) const;
 	void add(IItem*);
 	void remove(int) ;

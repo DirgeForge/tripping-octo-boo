@@ -2,7 +2,8 @@
 
 #include "../include/menucontroller.h"
 
-MenuController::MenuController(MenuModel * menuModel) : menuModel(menuModel)
+MenuController::MenuController(MenuModel * menuModel, IViewable * view) : 
+menuModel(menuModel), view(view)
 {
 	menuModel->initialize();
 }

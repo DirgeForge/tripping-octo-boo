@@ -3,7 +3,7 @@
 
 class IViewable
 {
-	virtual void getInstance() const = 0;
+	//virtual void getInstance() const = 0;
 	virtual ~IViewable() = 0;
 };
 
