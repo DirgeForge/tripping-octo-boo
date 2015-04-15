@@ -2,7 +2,7 @@
 
 #include <QtWidgets>
 #include "barchair.h"
-#include "ordermenu.h"
+#include "Menu.h"
 
 int BarChair::totalChairs(0);
 
@@ -40,6 +40,6 @@ void BarChair::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 void BarChair::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
-    OrderMenu *showBox = new OrderMenu(chairID);
-    showBox->exec();
+    Form *showBox = new Form(chairID);
+    showBox->show();
 }

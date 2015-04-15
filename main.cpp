@@ -1,10 +1,12 @@
 #include <QtWidgets>
 
 #include "resttable.h"
-#include "ordermenu.h"
 #include "employeemenu.h"
 #include "systemmenu.h"
 #include "barchair.h"
+#include "Menu.h"
+#include "editmenu.h"
+#include "additem.h"
 
 #include <math.h>
 

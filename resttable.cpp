@@ -2,7 +2,7 @@
 
 #include <QtWidgets>
 #include "resttable.h"
-#include "ordermenu.h"
+#include "Menu.h"
 
 int RestTable::totalTables(0);
 
@@ -120,6 +120,6 @@ void RestTable::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 void RestTable::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
-    OrderMenu *showBox = new OrderMenu(tableID);
-    showBox->exec();
+    Form *showBox = new Form(tableID);
+    showBox->show();
 }

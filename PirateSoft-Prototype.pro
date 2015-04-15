@@ -11,19 +11,25 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     resttable.cpp \
-    ordermenu.cpp \
     employeemenu.cpp \
     systemmenu.cpp \
-    barchair.cpp
+    barchair.cpp \
+    additem.cpp \
+    editmenu.cpp \
+    Menu.cpp
 
 HEADERS  += \
     resttable.h \
-    ordermenu.h \
     employeemenu.h \
     systemmenu.h \
-    barchair.h
+    barchair.h \
+    additem.h \
+    editmenu.h \
+    Menu.h
 
 FORMS    += \
-    messagebox.ui \
     employeemenu.ui \
-    systemmenu.ui
+    systemmenu.ui \
+    additem.ui \
+    editmenu.ui \
+    Menu.ui
