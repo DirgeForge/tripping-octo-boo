@@ -15,7 +15,7 @@
     <ClInclude Include="include\imenu.h" />
     <ClInclude Include="include\iitem.h" />
     <ClInclude Include="include\imenucontroller.h" />
-    <ClInclude Include="include\menu.h" />
+    <ClInclude Include="include\menumodel.h" />
     <ClInclude Include="include\iobserver.h" />
     <ClInclude Include="include\menucontroller.h" />
     <ClInclude Include="include\observer.h" />

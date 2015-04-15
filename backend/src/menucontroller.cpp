@@ -2,39 +2,39 @@
 
 #include "../include/menucontroller.h"
 
-MenuController::MenuController(Menu * menu) : menu(menu)
+MenuController::MenuController(MenuModel * menuModel) : menuModel(menuModel)
 {
-	menu->initialize();
+	menuModel->initialize();
 }
 IItem * MenuController::at(int n) const
 {
-	return menu->at(n);
+	return menuModel->at(n);
 }
 void MenuController::add(IItem* item)
 {
-	menu->add(item);
+	menuModel->add(item);
 }
 void MenuController::remove(int n)
 {
-	menu->remove(n);
+	menuModel->remove(n);
 }
 int MenuController::getSize() const
 {
-	return menu->getSize();
+	return menuModel->getSize();
 }
 
 void MenuController::reset(int n) const
 {
-	menu->at(n)->setCategory("");
-	menu->at(n)->setDesc("");
-	menu->at(n)->setTitle("");
-	menu->at(n)->setImgPath("");
+	menuModel->at(n)->setCategory("");
+	menuModel->at(n)->setDesc("");
+	menuModel->at(n)->setTitle("");
+	menuModel->at(n)->setImgPath("");
 }
 void MenuController::print() const
 {
-	for (size_t i = 0; i < menu->getSize(); i++)
+	for (size_t i = 0; i < menuModel->getSize(); i++)
 	{
-		IItem * item = menu->at(i);
+		IItem * item = menuModel->at(i);
 		std::cout << item->getTitle() << " " << item->getCategory() << " " << item->getDesc() << " " << item->getImgPath() << std::endl;
 	}
 }

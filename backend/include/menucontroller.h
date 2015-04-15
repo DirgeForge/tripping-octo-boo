@@ -2,18 +2,18 @@
 #define MENUCONTROLLER_H
 
 #include "imenucontroller.h"
-#include "menu.h"
+#include "menumodel.h"
 //#include "../../main.cpp"
 
 class MenuController : public IMenuController
 {
 private:
-	Menu * menu;
+	MenuModel * menuModel;
 	//GraphicsView * view;
 
 public:
-	//MenuController(Menu*);
-	MenuController(Menu *);
+	//MenuController(MenuModel*);
+	MenuController(MenuModel *);
 	IItem * at(int) const;
 	void add(IItem*);
 	void remove(int) ;

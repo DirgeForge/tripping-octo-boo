@@ -1,15 +1,15 @@
-#include "../include/menu.h"
+#include "../include/menumodel.h"
 #include "../include/menucontroller.h"
 #include "../include/fooditem.h"
 #include <iostream>
 
 int main()
 {
-	// Menu - model
+	// MenuModel - model
 	// MenuController - control
 	// ??? - view
 
-	Menu * menu = new Menu();
+	MenuModel * menu = new MenuModel();
 	menu->initialize();
 	MenuController * controller = new MenuController(menu);
 	controller->print();

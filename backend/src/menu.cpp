@@ -1,14 +1,14 @@
 #include <iostream>
 
-#include "../include/menu.h"
+#include "../include/menumodel.h"
 #include "../include/fooditem.h"
 
-Menu::Menu()
+MenuModel::MenuModel()
 {
 	this->initialize();
 }
 
-void Menu::initialize()
+void MenuModel::initialize()
 {
 	// todo: make this actually read stuff from a file and populate the vector
 	items = std::vector<IItem*>(10);
@@ -17,29 +17,29 @@ void Menu::initialize()
 		items[i] = new FoodItem("fug", "item", "food", "food.jpg");
 	}
 }
-IItem * Menu::at(int n) const
+IItem * MenuModel::at(int n) const
 {
 	return items[n];
 }
-void Menu::add(IItem* item)
+void MenuModel::add(IItem* item)
 {
 	items.push_back(item);
 }
-void Menu::remove(int n)
+void MenuModel::remove(int n)
 {
 	delete items[n];
 	items.erase(items.begin() + n);
 }
-int Menu::getSize() const
+int MenuModel::getSize() const
 {
 	return items.size();
 }
 
-void Menu::addObserver(IObserver * o)
+void MenuModel::addObserver(IObserver * o)
 {
 	observers.push_back(o);
 }
-void Menu::removeObserver(IObserver * o)
+void MenuModel::removeObserver(IObserver * o)
 {
 	size_t i = 0;
 	while (i < observers.size())
@@ -56,7 +56,7 @@ void Menu::removeObserver(IObserver * o)
 		}
 	}
 }
-void Menu::notifyObservers()
+void MenuModel::notifyObservers()
 {
 	for (size_t i = 0; i < observers.size(); i++)
 	{
@@ -64,7 +64,7 @@ void Menu::notifyObservers()
 	}
 }
 
-Menu::~Menu()
+MenuModel::~MenuModel()
 {
 
 }
