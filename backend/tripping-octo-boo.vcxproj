@@ -11,17 +11,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\diningmenu.h" />
     <ClInclude Include="include\fooditem.h" />
     <ClInclude Include="include\imenu.h" />
-    <ClInclude Include="include\item.h" />
+    <ClInclude Include="include\iitem.h" />
+    <ClInclude Include="include\imenucontroller.h" />
     <ClInclude Include="include\menu.h" />
+    <ClInclude Include="include\iobserver.h" />
+    <ClInclude Include="include\menucontroller.h" />
+    <ClInclude Include="include\observer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\diningmenu.cpp" />
     <ClCompile Include="src\fooditem.cpp" />
-    <ClCompile Include="src\item.cpp" />
     <ClCompile Include="src\menu.cpp" />
+    <ClCompile Include="src\menucontroller.cpp" />
     <ClCompile Include="tests\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

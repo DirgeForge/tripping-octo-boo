@@ -8,6 +8,10 @@
 #include "editmenu.h"
 #include "additem.h"
 
+// --- includes for the backend:
+#include "backend/include/menucontroller.h"
+// --- end includes for the backend
+
 #include <math.h>
 
 class GraphicsView : public QGraphicsView

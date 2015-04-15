@@ -1,22 +1,30 @@
+#ifndef MENU_H
+#define MENU_H
+
 #include "imenu.h"
-#include <memory>
+#include "iitem.h"
+#include <vector>
 
 class Menu : public IMenu
 {
 private:
-	static IMenu * menu;
-	Menu(const Menu&);
-	Menu& operator=(const Menu&);
+	std::vector<IObserver*> observers;
+	std::vector<IItem*> items;
 
 public:
 	Menu();
-	virtual ~Menu() {}
-	void toFood();
-	void toDrinks();
-
-	Item * at(int) const override;
-	void add(Item *) override;
-	void remove(Item *) override;
+	
+	void initialize() override;
+	IItem * at(int) const override;
+	void add(IItem*) override;
+	void remove(int) override;
 	int getSize() const override;
-	std::string getCat() const override;
+
+	void addObserver(IObserver *);
+	void removeObserver(IObserver *);
+	void notifyObservers();
+
+	~Menu();
 };
+
+#endif
