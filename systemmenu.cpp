@@ -7,6 +7,8 @@ SystemMenu::SystemMenu(QWidget *parent) :
     ui(new Ui::SystemMenu)
 {
     ui->setupUi(this);
+    QDateTime time = QDateTime();
+    ui->dateTime->setText(time.currentDateTime().toString());
 }
 
 SystemMenu::SystemMenu(QColor color) : color(color)
@@ -40,4 +42,9 @@ void SystemMenu::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 SystemMenu::~SystemMenu()
 {
     delete ui;
+}
+
+void SystemMenu::on_power_clicked()
+{
+    exit(0);
 }

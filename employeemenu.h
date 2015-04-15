@@ -11,6 +11,7 @@
 
 #include <QDialog>
 #include <QGraphicsItem>
+#include <QDateTime>
 
 namespace Ui {
 class EmployeeMenu;

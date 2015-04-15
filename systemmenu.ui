@@ -453,7 +453,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>290</y>
+     <y>270</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -466,7 +466,7 @@
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>200</y>
+     <y>180</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -479,7 +479,7 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>200</y>
+     <y>180</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -492,7 +492,7 @@
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>200</y>
+     <y>180</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -505,7 +505,7 @@
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>290</y>
+     <y>270</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -536,7 +536,7 @@
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>290</y>
+     <y>270</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -545,12 +545,12 @@
     <string>Manage Employees</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_3">
+  <widget class="QLabel" name="dateTime">
    <property name="geometry">
     <rect>
-     <x>470</x>
-     <y>10</y>
-     <width>61</width>
+     <x>20</x>
+     <y>440</y>
+     <width>501</width>
      <height>21</height>
     </rect>
    </property>
@@ -562,12 +562,15 @@
    <property name="text">
     <string>8:15 PM</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="pushButton_7">
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>380</y>
+     <y>360</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -580,7 +583,7 @@
    <property name="geometry">
     <rect>
      <x>370</x>
-     <y>380</y>
+     <y>360</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -593,13 +596,26 @@
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>380</y>
+     <y>360</y>
      <width>141</width>
      <height>71</height>
     </rect>
    </property>
    <property name="text">
     <string>Review/Edit Orders</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="power">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Power</string>
    </property>
   </widget>
  </widget>

@@ -12,6 +12,7 @@
 
 #include <QGraphicsItem>
 #include <QDialog>
+#include <QDateTime>
 
 namespace Ui {
 class SystemMenu;
@@ -32,6 +33,9 @@ public:
 
 protected:
     void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) Q_DECL_OVERRIDE;
+
+private slots:
+    void on_power_clicked();
 
 private:
     Ui::SystemMenu *ui;

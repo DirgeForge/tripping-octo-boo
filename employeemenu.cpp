@@ -7,6 +7,8 @@ EmployeeMenu::EmployeeMenu(QWidget *parent) :
     ui(new Ui::EmployeeMenu)
 {
     ui->setupUi(this);
+    QDateTime time = QDateTime();
+    ui->dateTime->setText(time.currentDateTime().toString());
 }
 
 EmployeeMenu::EmployeeMenu(QColor color) : color(color)

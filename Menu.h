@@ -3,6 +3,7 @@
 
 #include "editmenu.h"
 #include "additem.h"
+#include "receipt.h"
 
 #include <QWidget>
 
@@ -24,8 +25,11 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::Form *ui;
+    int tableNum;
 };
 
 #endif // MENU_H
