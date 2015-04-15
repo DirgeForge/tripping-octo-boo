@@ -16,7 +16,7 @@
 
 #include <math.h>
 
-class GraphicsView : public QGraphicsView
+class GraphicsView : public QGraphicsView, public IViewable
 {
 // --- control and model variables ---
 private:
@@ -27,12 +27,13 @@ private:
 public:
     GraphicsView(QGraphicsScene *scene) : QGraphicsView(scene)
     {
+        initBackend();
     }
 
 // --- function for initializing the backend ---
     void initBackend()
     {
-        this->control = new MenuController(model);
+        this->control = new MenuController(model, this);
     }
 // --- end function ---
 
