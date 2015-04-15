@@ -3,8 +3,9 @@
 
 class IViewable
 {
+public:
 	//virtual void getInstance() const = 0;
-	virtual ~IViewable() = 0;
+    virtual ~IViewable() {}
 };
 
 #endif

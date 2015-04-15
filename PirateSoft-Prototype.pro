@@ -17,7 +17,10 @@ SOURCES += main.cpp \
     additem.cpp \
     editmenu.cpp \
     Menu.cpp \
-    receipt.cpp
+    receipt.cpp \
+    backend/src/fooditem.cpp \
+    backend/src/menu.cpp \
+    backend/src/menucontroller.cpp
 
 HEADERS  += \
     resttable.h \
@@ -27,7 +30,17 @@ HEADERS  += \
     additem.h \
     editmenu.h \
     Menu.h \
-    receipt.h
+    receipt.h \
+    backend/include/fooditem.h \
+    backend/include/iitem.h \
+    backend/include/imenu.h \
+    backend/include/imenucontroller.h \
+    backend/include/iobserver.h \
+    backend/include/menucontroller.h \
+    backend/include/menumodel.h \
+    backend/include/observer.h \
+    mainwindow.h \
+    backend/include/iviewable.h
 
 FORMS    += \
     employeemenu.ui \
