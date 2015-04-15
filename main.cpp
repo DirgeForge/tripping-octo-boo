@@ -11,6 +11,7 @@
 // --- includes for the backend ---
 #include "backend/include/menucontroller.h"
 #include "backend/include/menumodel.h"
+#include "backend/include/iviewable.h"
 // --- end includes for the backend ---
 
 #include <math.h>
@@ -27,6 +28,13 @@ public:
     GraphicsView(QGraphicsScene *scene) : QGraphicsView(scene)
     {
     }
+
+// --- function for initializing the backend ---
+    void initBackend()
+    {
+        this->control = new MenuController(model);
+    }
+// --- end function ---
 
 protected:
     virtual void resizeEvent(QResizeEvent *) Q_DECL_OVERRIDE

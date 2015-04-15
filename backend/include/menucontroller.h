@@ -3,12 +3,14 @@
 
 #include "imenucontroller.h"
 #include "menumodel.h"
+#include "iviewable.h"
 //#include "../../main.cpp"
 
 class MenuController : public IMenuController
 {
 private:
 	MenuModel * menuModel;
+	IViewable * view;
 	//GraphicsView * view;
 
 public:
