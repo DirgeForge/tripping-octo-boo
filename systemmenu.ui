@@ -475,7 +475,7 @@
     <string>Close Restaurant</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="openRestaurant">
    <property name="geometry">
     <rect>
      <x>30</x>

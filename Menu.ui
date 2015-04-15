@@ -438,7 +438,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Complete Order</string>
+    <string>Print Guest Check</string>
    </property>
   </widget>
   <widget class="Line" name="line">
@@ -556,7 +556,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>6</number>
    </property>
    <widget class="QWidget" name="Beverages">
     <attribute name="title">
@@ -763,10 +763,23 @@
      <x>0</x>
      <y>110</y>
      <width>191</width>
-     <height>301</height>
+     <height>251</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout"/>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>360</y>
+     <width>191</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Send to Kitchen</string>
+   </property>
   </widget>
  </widget>
  <tabstops>
