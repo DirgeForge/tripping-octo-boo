@@ -35,6 +35,10 @@ public:
     {
         this->control = new MenuController(model, this);
     }
+    void update()
+    {
+        // get model state via the pointer
+    }
 // --- end function ---
 
 protected:
