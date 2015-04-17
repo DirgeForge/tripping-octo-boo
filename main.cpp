@@ -7,6 +7,7 @@
 #include "Menu.h"
 #include "editmenu.h"
 #include "additem.h"
+#include "introwindow.h"
 
 // --- includes for the backend ---
 #include "backend/include/menucontroller.h"
@@ -33,7 +34,7 @@ public:
 // --- function for initializing the backend ---
     void initBackend()
     {
-        this->control = new MenuController(model, this);
+        //this->control = new MenuController(model, this);
     }
     void update()
     {
@@ -48,7 +49,6 @@ protected:
 };
 int screen_width;
 int screen_height;
-QList<RestTable*> tableList;
 
 /*
  * Loads the whole restruant layout
@@ -68,7 +68,6 @@ void loadRestaurant(QGraphicsScene &scene)
         {
             tableItem = new RestTable;
             tableItem->setPos(700 + (j*200), (.15*screen_height) + (i*120));
-            tableList.append(tableItem);
             scene.addItem(tableItem);
         }
     }
@@ -156,6 +155,9 @@ int main(int argc, char *argv[])
 
 
     view.show();
+
+    IntroWindow *login = new IntroWindow(&view);
+    login->show();
 
 
     return app.exec();
