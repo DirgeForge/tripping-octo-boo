@@ -2,9 +2,10 @@
 #define FOODITEM_H
 
 #include "iitem.h"
+#include "iserializable.h"
 #include <vector>
 
-class FoodItem : public IItem
+class FoodItem : public IItem, public ISerializable
 {
 private:
 	std::vector<std::string> allergens;
@@ -26,6 +27,11 @@ public:
 	std::string getDesc() const override;
 	std::string getCategory() const override;
 	std::string getImgPath() const override;
+
+	void reset() override;
+
+	std::ostream& operator<<(std::ostream& out, const FoodItem& thisobj) const override;
+	std::istream& operator>>(std::istream& in, FoodItem& thisobj) override;
 	~FoodItem();
 };
 

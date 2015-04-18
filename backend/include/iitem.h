@@ -18,6 +18,8 @@ public:
 	virtual std::string getDesc() const = 0;
 	virtual std::string getCategory() const = 0;
 	virtual std::string getImgPath() const = 0;
+
+	virtual void reset() = 0;
 };
 
 #endif
