@@ -19,7 +19,10 @@
 
 class GraphicsView : public QGraphicsView, public IViewable
 {
-// --- control and model variables ---
+// --- control and model variables (these should be private) ---
+// pass these pointers to any sub-windows so they can modify the
+// model state on event triggers.
+// all modifications should be done via control's member functions.
 private:
     MenuController * control;
     MenuModel * model;
@@ -31,7 +34,7 @@ public:
         initBackend();
     }
 
-// --- function for initializing the backend ---
+// --- function for initializing the backend (these should be public) ---
     void initBackend()
     {
         //this->control = new MenuController(model, this);

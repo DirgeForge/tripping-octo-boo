@@ -5,6 +5,11 @@
 
 #include <QMainWindow>
 
+// ---- includes for the backend ----
+#include "backend/include/menucontroller.h"
+#include "backend/include/menumodel.h"
+// ---- end backend includes ----
+
 namespace Ui {
 class EditMenu;
 }
@@ -15,6 +20,7 @@ class EditMenu : public QMainWindow
 
 public:
     explicit EditMenu(QWidget *parent = 0);
+    EditMenu(MenuModel * model, MenuController * controller, QWidget *parent = 0);  // this *shouldn't* crap out
     ~EditMenu();
 
 private slots:
@@ -28,6 +34,10 @@ private slots:
 private:
     Ui::EditMenu *ui;
     QMainWindow *a;
+
+    // model/controller pointers
+    MenuController * menu;
+    MenuModel * model;
 };
 
 #endif // EDITMENU_H

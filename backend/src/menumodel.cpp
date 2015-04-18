@@ -37,7 +37,7 @@ IItem * MenuModel::at(int n) const
 }
 
 /**
-* Adds the given IItem-compatible object into the model.
+* Adds the given IItem object into the model.
 * @param item the pointer to the item to be added
 */
 void MenuModel::add(IItem* item)
@@ -56,7 +56,7 @@ void MenuModel::remove(int n)
 }
 
 /**
-* Returns total number of IItem-compatible objects stored in the model.
+* Returns total number of IItem objects stored in the model.
 * @return size of the IItem* vector
 */
 int MenuModel::getSize() const
@@ -84,7 +84,7 @@ void MenuModel::setFilePath(std::string filepath)
 
 /**
 * Subscribes the given observer to this model.
-* @param o pointer to the IObserver-compatible object that wants to be notified
+* @param o pointer to the IObserver object that wants to be notified
 */
 void MenuModel::addObserver(IObserver * o)
 {
@@ -93,7 +93,7 @@ void MenuModel::addObserver(IObserver * o)
 
 /**
 * Unsubscribes the given observer from this model. 
-* @param o pointer to the IObserver-compatible object that wants to unsubscribe
+* @param o pointer to the IObserver object that wants to unsubscribe
 */
 void MenuModel::removeObserver(IObserver * o)
 {
