@@ -23,7 +23,7 @@ public:
 	void setDesc(const std::string &) override;
 	void setCategory(const std::string &) override;
 	void setImgPath(const std::string &);
-
+	void addAllergen(const std::string&);
 
 
 

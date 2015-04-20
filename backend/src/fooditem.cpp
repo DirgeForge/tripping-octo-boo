@@ -3,7 +3,7 @@
 
 FoodItem::FoodItem()
 {
-
+	allergens.clear();
 }
 
 FoodItem::FoodItem(const std::string & title, const std::string & desc, 
@@ -30,6 +30,10 @@ void FoodItem::setCategory(const std::string & category)
 void FoodItem::setImgPath(const std::string & imgpath)
 {
 	this->imgpath = imgpath;
+}
+void FoodItem::addAllergen(const std::string& allergen)
+{
+	allergens.push_back(allergen);
 }
 // ---- end of setters ----
 

@@ -1,0 +1,2 @@
+TITLE cheese sandwich  DESC a plain old cheese sandwich  CATEGORY sandwich  IMGPATH cheese.jpg  ALLERGENS cheese wheat END
+TITLE chili dog  DESC wiener covered in chili  CATEGORY hotdog  IMGPATH hotdog.jpg  ALLERGENS cheese beans END

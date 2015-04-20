@@ -23,10 +23,12 @@ void MenuModel::initialize()
         std::string line;
         getline(f, line);
         std::istringstream objdata(line);
-		
-		IItem * item = new FoodItem;
-		unserialize(objdata, item);
-		items.push_back(std::unique_ptr<IItem>(item));
+		if (isalpha(objdata.peek()))
+		{
+			IItem * item = new FoodItem;
+			unserialize(objdata, item);
+			items.push_back(std::unique_ptr<IItem>(item));
+		}
 	}
 	f.close();
 }
@@ -155,12 +157,14 @@ void MenuModel::unserialize(std::istream& in, void* thisobj)
 */
 MenuModel::~MenuModel()
 {
-	std::ofstream f(filepath);
+	std::ofstream f;
+	f.open(filepath, std::ios::trunc);
 	for (size_t i = 0; i < items.size(); i++)
 	{
 		void * item = &*items[i];
 		serialize(f, item);
 		items[i].release();
 	}
+	f.flush();
 	f.close();
 }

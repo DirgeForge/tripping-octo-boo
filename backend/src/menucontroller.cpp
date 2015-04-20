@@ -8,9 +8,9 @@
 * @param view pointer to the IViewable object to act as the view
 */
 MenuController::MenuController(MenuModel * menuModel, IViewable * view) : 
- view(view)
+ menuModel(menuModel), view(view)
 {
-    menuModel = new MenuModel;
+
 }
 
 /** 
@@ -49,7 +49,10 @@ int MenuController::getSize() const
 {
 	return menuModel->getSize();
 }
-
+void MenuController::addAllergen(int pos, const std::string& allergen)
+{
+	static_cast<FoodItem*>(menuModel->at(pos))->addAllergen(allergen);
+}
 /** 
 * Resets the IItem object at index n.
 * @param n the index of the object to reset
@@ -64,7 +67,7 @@ void MenuController::reset(int n) const
 */
 void MenuController::print() const
 {
-	for (size_t i = 0; i < menuModel->getSize(); i++)
+	for (int i = 0; i < menuModel->getSize(); i++)
 	{
 		IItem * item = menuModel->at(i);
 		std::cout << item->getTitle() << " " << item->getCategory() << " " << item->getDesc() << " " << item->getImgPath() << std::endl;

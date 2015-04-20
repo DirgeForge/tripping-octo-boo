@@ -11,9 +11,10 @@ void FoodItem_Serialize::serialize(std::ostream& out, void* fooditem)
 		<< " ALLERGENS ";
 	for (size_t i = 0; i < f->getAllergens().size(); i++)
 	{
-		out << f->getAllergens()[i] << " , ";
+		out << f->getAllergens()[i] << " ";
 	}
-	out	<< " END" << std::endl;
+	out	<< "END" << std::endl;
+	out.flush();
 }
 
 void FoodItem_Serialize::unserialize(std::istream& in, void* fooditem)
@@ -21,9 +22,11 @@ void FoodItem_Serialize::unserialize(std::istream& in, void* fooditem)
 	FoodItem * f = static_cast<FoodItem*>(fooditem);
 	std::string token;
 	std::string tokenOrder[] = { "TITLE", "DESC", "CATEGORY", "IMGPATH", "ALLERGENS", "END" };
-	std::string buffer[] = { "", "", "", "", "" };
+	std::string buffer[] = { "", "", "", "" };
+
 	int i = 0;
-	while (in >> token && i < f->numTokens - 1)
+	in >> token;
+	while (i < f->numTokens - 1 && in >> token)
 	{
 		while (token != tokenOrder[i + 1])
 		{
@@ -33,10 +36,18 @@ void FoodItem_Serialize::unserialize(std::istream& in, void* fooditem)
 		i++;
 	}
 
+	// ugh
+	f->setTitle(buffer[0]);
+	f->setDesc(buffer[1]);
+	f->setCategory(buffer[2]);
+	f->setImgPath(buffer[3]);
+
 	while (in >> token && token != "END")
 	{
-		f->getAllergens().push_back(token);
+		f->addAllergen(token);
 	}
+
+
 }
 
 FoodItem_Serialize::~FoodItem_Serialize()

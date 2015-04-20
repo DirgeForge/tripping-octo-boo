@@ -4,7 +4,7 @@
 #include "imenucontroller.h"
 #include "menumodel.h"
 #include "iviewable.h"
-//#include "../../main.cpp"
+#include "fooditem.h"
 
 class MenuController : public IMenuController
 {
@@ -20,6 +20,7 @@ public:
 	void add(IItem*);
 	void remove(int) ;
 	int getSize() const ;
+	void addAllergen(int, const std::string&);
 
 	void reset(int) const;
 	void print() const;
