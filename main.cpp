@@ -34,7 +34,8 @@ public:
         initBackend();
     }
 
-// --- function for initializing the backend (these should be public) ---
+// --- backend-related functions ---
+public:
     void initBackend()
     {
         //this->control = new MenuController(model, this);
@@ -43,6 +44,15 @@ public:
     {
         // get model state via the pointer
     }
+    MenuController * getControl()
+    {
+        return control;
+    }
+    MenuModel * getModel()
+    {
+        return model;
+    }
+
 // --- end function ---
 
 protected:

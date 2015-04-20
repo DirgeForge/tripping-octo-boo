@@ -13,15 +13,8 @@ EditMenu::EditMenu(QWidget *parent) :
 
 }
 
-// ---- backend-compatible constructor (hopefully) ----
-EditMenu::EditMenu(MenuModel * model, MenuController * controller, QWidget *parent)
-: model(model), controller(controller), QMainWindow(parent), ui(new Ui::EditMenu)
-{
-}
-
 EditMenu::~EditMenu()
 {
-    controller = NULL;
     model = NULL;
     delete ui;
 }
