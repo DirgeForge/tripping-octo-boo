@@ -12,9 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\fooditem.h" />
+    <ClInclude Include="include\fooditem_serialize.h" />
     <ClInclude Include="include\imenu.h" />
     <ClInclude Include="include\iitem.h" />
     <ClInclude Include="include\imenucontroller.h" />
+    <ClInclude Include="include\iserializable.h" />
+    <ClInclude Include="include\iviewable.h" />
     <ClInclude Include="include\menumodel.h" />
     <ClInclude Include="include\iobserver.h" />
     <ClInclude Include="include\menucontroller.h" />
@@ -22,8 +25,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\fooditem.cpp" />
-    <ClCompile Include="src\menu.cpp" />
+    <ClCompile Include="src\fooditem_serialize.cpp" />
     <ClCompile Include="src\menucontroller.cpp" />
+    <ClCompile Include="src\menumodel.cpp" />
     <ClCompile Include="tests\main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

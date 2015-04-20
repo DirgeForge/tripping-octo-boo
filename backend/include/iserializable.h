@@ -2,14 +2,16 @@
 #define ISERIALIZABLE_H
 
 #include <iostream>
+#include <string>
 
 class ISerializable
 {
 public:
-	virtual ostream& operator<<(std::ostream& out, const ISerializable thisobj) const = 0;
-	virtual istream& operator>>(std::istream& in, ISerializable thisobj) = 0;
 	static int numTokens;
+	virtual void serialize(std::ostream&, void*) = 0;
+	virtual void unserialize(std::istream&, void*) = 0;
 	virtual ~ISerializable() {}
+	
 };
 
 #endif

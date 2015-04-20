@@ -2,6 +2,11 @@
 
 #include "../include/menucontroller.h"
 
+/** 
+* Working constructor.
+* @param menuModel pointer to the MenuModel object to act as the model
+* @param view pointer to the IViewable object to act as the view
+*/
 MenuController::MenuController(MenuModel * menuModel, IViewable * view) : 
 menuModel(menuModel), view(view)
 {

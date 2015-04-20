@@ -1,10 +1,13 @@
 #include <iostream>
+#include <fstream>
 #include <sstream>
 #include "../include/menumodel.h"
 #include "../include/fooditem.h"
+#include "../include/fooditem_serialize.h"
 
 MenuModel::MenuModel() : filepath("fooditems.txt")
 {
+	serializer = std::make_shared<FoodItem_Serialize>();
 	this->initialize();
 }
 
@@ -17,11 +20,13 @@ void MenuModel::initialize()
 	std::ifstream f(filepath);
 	while (f.good())
 	{
-		std::string line = f.getline();
-		istringstream objdata(line);
+        std::string line;
+        getline(f, line);
+        std::istringstream objdata(line);
 		
-		items.push_back(new FoodItem);
-		objdata >> items[items.size() - 1];
+		IItem * item = new FoodItem;
+		unserialize(objdata, item);
+		items.push_back(std::unique_ptr<IItem>(item));
 	}
 	f.close();
 }
@@ -33,7 +38,7 @@ void MenuModel::initialize()
 */
 IItem * MenuModel::at(int n) const
 {
-	return items[n];
+	return &*items[n];
 }
 
 /**
@@ -42,7 +47,7 @@ IItem * MenuModel::at(int n) const
 */
 void MenuModel::add(IItem* item)
 {
-	items.push_back(item);
+	items.push_back(std::unique_ptr<IItem>(item));
 }
 
 /**
@@ -51,7 +56,7 @@ void MenuModel::add(IItem* item)
 */
 void MenuModel::remove(int n)
 {
-	delete items[n];
+	items[n].release();
 	items.erase(items.begin() + n);
 }
 
@@ -68,7 +73,7 @@ int MenuModel::getSize() const
 * Returns the filepath for all serialization operations.
 * @return the name of the file (usually plaintext)
 */
-std::string MenuModel::getFilePath()
+std::string MenuModel::getFilePath() const
 {
 	return filepath;
 }
@@ -77,7 +82,7 @@ std::string MenuModel::getFilePath()
 * Changes the filepath for all serialization operations to the argument.
 * @param filepath name of the new file to use for serializations
 */
-void MenuModel::setFilePath(std::string filepath)
+void MenuModel::setFilePath(const std::string& filepath)
 {
 	this->filepath = filepath;
 }
@@ -124,6 +129,27 @@ void MenuModel::notifyObservers()
 	}
 }
 
+
+/**
+* Delegates serialization to the serializer object.
+* @param out ostream reference
+* @param thisobj pointer to the object to be serialized
+*/
+void MenuModel::serialize(std::ostream& out, void* thisobj)
+{
+	serializer->serialize(out, thisobj);
+}
+
+/**
+* Delegates unserialization to the serializer object.
+* @param in istream reference from which the data is to be extracted
+*
+*/
+void MenuModel::unserialize(std::istream& in, void* thisobj)
+{
+	serializer->unserialize(in, thisobj);
+}
+
 /**
 * Destructor - it *should* serialize all changes before destruction.
 */
@@ -132,7 +158,9 @@ MenuModel::~MenuModel()
 	std::ofstream f(filepath);
 	for (size_t i = 0; i < items.size(); i++)
 	{
-		f << items[i];
+		void * item = &*items[i];
+		serialize(f, item);
+		items[i].release();
 	}
 	f.close();
 }

@@ -6,7 +6,7 @@
 class IViewable : public IObserver
 {
 public:
-	//virtual void getInstance() const = 0;
+	
     virtual ~IViewable() {}
 };
 

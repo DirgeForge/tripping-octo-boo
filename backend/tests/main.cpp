@@ -1,7 +1,19 @@
 #include "../include/menumodel.h"
 #include "../include/menucontroller.h"
 #include "../include/fooditem.h"
+#include "../include/iviewable.h"
 #include <iostream>
+
+class ConsoleView : public IViewable
+{
+public:
+	ConsoleView() {}
+	void update() override
+	{
+
+	}
+	~ConsoleView() {}
+};
 
 int main()
 {
@@ -11,7 +23,8 @@ int main()
 
 	MenuModel * menu = new MenuModel();
 	menu->initialize();
-	MenuController * controller = new MenuController(menu);
+	IViewable * view = new ConsoleView();
+	MenuController * controller = new MenuController(menu, view);
 	controller->print();
 
 	system("Pause");
