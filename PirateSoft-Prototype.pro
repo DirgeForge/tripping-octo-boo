@@ -53,3 +53,6 @@ FORMS    += \
     editmenu.ui \
     Menu.ui \
     receipt.ui
+
+DISTFILES += \
+    backend/src/fooditems.txt

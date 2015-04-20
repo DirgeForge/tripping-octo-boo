@@ -8,9 +8,9 @@
 * @param view pointer to the IViewable object to act as the view
 */
 MenuController::MenuController(MenuModel * menuModel, IViewable * view) : 
-menuModel(menuModel), view(view)
+ view(view)
 {
-	menuModel->initialize();
+    menuModel = new MenuModel;
 }
 
 /** 
