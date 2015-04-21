@@ -14,7 +14,6 @@ SOURCES += main.cpp \
     employeemenu.cpp \
     systemmenu.cpp \
     barchair.cpp \
-    additem.cpp \
     editmenu.cpp \
     Menu.cpp \
     receipt.cpp \
@@ -29,7 +28,6 @@ HEADERS  += \
     employeemenu.h \
     systemmenu.h \
     barchair.h \
-    additem.h \
     editmenu.h \
     Menu.h \
     receipt.h \
@@ -49,7 +47,6 @@ HEADERS  += \
 FORMS    += \
     employeemenu.ui \
     systemmenu.ui \
-    additem.ui \
     editmenu.ui \
     Menu.ui \
     receipt.ui

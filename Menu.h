@@ -2,7 +2,7 @@
 #define MENU_H
 
 #include "editmenu.h"
-#include "additem.h"
+
 #include "receipt.h"
 
 #include <QWidget>

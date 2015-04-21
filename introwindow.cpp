@@ -301,7 +301,7 @@ IntroWindow::IntroWindow(QGraphicsView * passView)
 
 
     view = passView;
-    this->showFullScreen();
+   // this->showFullScreen();
 }
 
 IntroWindow::~IntroWindow()

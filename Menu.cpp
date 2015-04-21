@@ -21,14 +21,15 @@ Form::~Form()
 
 void Form::on_pushButton_4_clicked()
 {
-    EditMenu * w = new EditMenu();
+    FoodItem temp;
+    EditMenu * w = new EditMenu(temp);
     w->show();
 
 }
 
 void Form::on_pushButton_3_clicked()
 {
-    AddItem * w = new AddItem();
+    EditMenu * w = new EditMenu();
     w->show();
 }
 

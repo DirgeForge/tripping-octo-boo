@@ -21,7 +21,7 @@ void FoodItem_Serialize::unserialize(std::istream& in, void* fooditem)
 {
 	FoodItem * f = static_cast<FoodItem*>(fooditem);
 	std::string token;
-	std::string tokenOrder[] = { "TITLE", "DESC", "CATEGORY", "IMGPATH", "ALLERGENS", "END" };
+    std::string tokenOrder[] = { "TITLE", "DESC", "CATEGORY", "IMGPATH", "ALLERGENS", "END" };
 	std::string buffer[] = { "", "", "", "" };
 
 	int i = 0;
@@ -39,7 +39,7 @@ void FoodItem_Serialize::unserialize(std::istream& in, void* fooditem)
 	// ugh
 	f->setTitle(buffer[0]);
 	f->setDesc(buffer[1]);
-	f->setCategory(buffer[2]);
+    f->setCategory(FoodItem::DINNER);
 	f->setImgPath(buffer[3]);
 
 	while (in >> token && token != "END")

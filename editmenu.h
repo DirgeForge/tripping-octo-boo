@@ -2,13 +2,9 @@
 #define EDITMENU_H
 
 #include "Menu.h"
+#include "backend/include/fooditem.h"
 
 #include <QMainWindow>
-
-// ---- includes for the backend ----
-#include "backend/include/menucontroller.h"
-#include "backend/include/menumodel.h"
-// ---- end backend includes ----
 
 namespace Ui {
 class EditMenu;
@@ -20,7 +16,7 @@ class EditMenu : public QMainWindow
 
 public:
     explicit EditMenu(QWidget *parent = 0);
-    EditMenu(MenuModel * model, MenuController * controller, QWidget *parent = 0);  // this *shouldn't* crap out
+    explicit EditMenu(const FoodItem&, QWidget *parent = 0);
     ~EditMenu();
 
 private slots:
@@ -31,13 +27,14 @@ private slots:
 
     void on_lineEdit_editingFinished();
 
+    void on_editDescription_clicked();
+
+    void on_UploadNewPicture_clicked();
+
 private:
     Ui::EditMenu *ui;
     QMainWindow *a;
-
-    // model/controller pointers
-    MenuController * menu;
-    MenuModel * model;
+    FoodItem *item;
 };
 
 #endif // EDITMENU_H
