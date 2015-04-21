@@ -30,7 +30,7 @@ EditMenu::EditMenu(const FoodItem & currentItem, QWidget *parent) :
     ui->Title->setText("Edit Item");
     ui->editName->setText(QString::fromStdString(currentItem.getTitle()));
     ui->categories->setCurrentIndex(currentItem.getCategory());
-    setImage("testFINDME.jpg");
+    setImage(QString::fromStdString(currentItem.getImgPath()));
 
 }
 
@@ -93,9 +93,9 @@ void EditMenu::setImage(const QString & imagePath)
     scene->setSceneRect(image.rect());
     ui->imgDisplay->setScene(scene);
     ui->imgDisplay->fitInView(scene->itemsBoundingRect(), Qt::KeepAspectRatio);
-    item->setImgPath(imagePath.toStdString());
 
     QString saveName = ui->editName->text();
     saveName.append(".jpg");
     imageObject->save(saveName);
+    item->setImgPath(saveName.toStdString());
 }
