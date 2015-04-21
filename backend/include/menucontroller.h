@@ -16,13 +16,13 @@ private:
 public:
 	//MenuController(MenuModel*);
 	MenuController(MenuModel *, IViewable *);
-	IItem * at(int) const;
-	void add(IItem*);
-	void remove(int) ;
-	int getSize() const ;
+	IItem * at(int) const override;
+	void add(IItem*) override;
+	void remove(int) override;
+	int getSize() const override;
 	void addAllergen(int, const std::string&);
 
-	void reset(int) const;
+	void reset(int) const override;
 	void print() const;
 
 	~MenuController();
