@@ -3,6 +3,7 @@
 
 #include "Menu.h"
 #include "backend/include/fooditem.h"
+#include "backend/include/fooditem_serialize.h"
 
 #include <QMainWindow>
 
@@ -32,6 +33,7 @@ private slots:
     void on_UploadNewPicture_clicked();
 
 private:
+    void setImage(const QString &imagePath);
     Ui::EditMenu *ui;
     QMainWindow *a;
     FoodItem *item;

@@ -8,6 +8,9 @@ void FoodItem_Serialize::serialize(std::ostream& out, void* fooditem)
 		<< " DESC " << f->getDesc()
 		<< " CATEGORY " << f->getCategory()
 		<< " IMGPATH " << f->getImgPath()
+        << " PRICE " << f->getPrice()
+        << " INSEASON " << f->getInSeason()
+        << " DISCOUNT " << f->getDiscount()
 		<< " ALLERGENS ";
 	for (size_t i = 0; i < f->getAllergens().size(); i++)
 	{
@@ -17,11 +20,11 @@ void FoodItem_Serialize::serialize(std::ostream& out, void* fooditem)
 	out.flush();
 }
 
-void FoodItem_Serialize::unserialize(std::istream& in, void* fooditem)
+void FoodItem_Serialize::unserialize(std::istream &in, void* fooditem)
 {
 	FoodItem * f = static_cast<FoodItem*>(fooditem);
 	std::string token;
-    std::string tokenOrder[] = { "TITLE", "DESC", "CATEGORY", "IMGPATH", "ALLERGENS", "END" };
+    std::string tokenOrder[] = { "TITLE", "DESC", "CATEGORY", "IMGPATH", "PRICE", "INSEASON", "DISCOUNT", "ALLERGENS", "END" };
 	std::string buffer[] = { "", "", "", "" };
 
 	int i = 0;
@@ -39,8 +42,14 @@ void FoodItem_Serialize::unserialize(std::istream& in, void* fooditem)
 	// ugh
 	f->setTitle(buffer[0]);
 	f->setDesc(buffer[1]);
-    f->setCategory(FoodItem::DINNER);
+    f->setCategory(std::stoi(buffer[2]));
 	f->setImgPath(buffer[3]);
+    f->setPrice(std::stoi(buffer[4]));
+    if (buffer[5] == "1")
+        f->setInSeason(true);
+    else
+        f->setInSeason(false);
+    f->setDiscount(std::stoi(buffer[6]));
 
 	while (in >> token && token != "END")
 	{

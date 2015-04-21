@@ -29,7 +29,7 @@ public:
     static const int DESSERTS = 6;
     static const int KIDS = 7;
 
-	static const int numTokens = 5;
+    static const int numTokens = 8;
 	FoodItem();
     FoodItem(const std::string& title, const std::string& description, int category, const std::string& imgPath,
              double price, double discount, bool inSeason);

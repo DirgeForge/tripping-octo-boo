@@ -6,8 +6,8 @@
 class FoodItem_Serialize : public ISerializable
 {
 public:
-	void serialize(std::ostream&, void*) override;
-	void unserialize(std::istream&, void*) override;
+    void serialize(std::ostream&, void*) override;
+    void unserialize(std::istream&, void*) override;
 	~FoodItem_Serialize();
 };
 

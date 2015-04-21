@@ -32,8 +32,8 @@ public:
 	void removeObserver(IObserver *);
 	void notifyObservers();
 
-	void serialize(std::ostream&, void*) override;
-	void unserialize(std::istream&, void*) override;
+    void serialize(std::ostream&, void*) override;
+    void unserialize(std::istream&, void*) override;
 
 	~MenuModel();
 };

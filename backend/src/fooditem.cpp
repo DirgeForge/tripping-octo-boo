@@ -3,6 +3,7 @@
 
 FoodItem::FoodItem()
 {
+    imgpath = "";
 	allergens.clear();
 }
 

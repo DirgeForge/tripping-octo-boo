@@ -1,6 +1,7 @@
 #include "editmenu.h"
 #include "ui_editmenu.h"
-
+#include <iostream>
+#include <fstream>
 
 #include "qmessagebox.h"
 #include <QFileDialog>
@@ -29,7 +30,7 @@ EditMenu::EditMenu(const FoodItem & currentItem, QWidget *parent) :
     ui->Title->setText("Edit Item");
     ui->editName->setText(QString::fromStdString(currentItem.getTitle()));
     ui->categories->setCurrentIndex(currentItem.getCategory());
-
+    setImage("testFINDME.jpg");
 
 }
 
@@ -50,6 +51,18 @@ void EditMenu::on_remove_item_pressed()
 
 void EditMenu::on_save_changes_clicked()
 {
+    item->setCategory(ui->categories->currentIndex());
+    item->setDesc(ui->editDesc->text().toStdString());
+    item->setDiscount(ui->editDiscount->value());
+    item->setInSeason(ui->inSeason->isChecked());
+    item->setPrice(ui->editPrice->value());
+    item->setTitle(ui->editName->text().toStdString());
+
+    std::ofstream saveToMenu("MenuDB.txt", std::ios::out | std::ios::app);
+    FoodItem_Serialize output;
+    output.serialize(saveToMenu,item);
+    saveToMenu.close();
+
     this->close();
 }
 
@@ -67,7 +80,10 @@ void EditMenu::on_UploadNewPicture_clicked()
 {
     QString imagePath = QFileDialog::getOpenFileName(this, tr("Open File"),
                 "", tr("JPEG (*.jpg *.jpeg);;PNG (*.png)" ));
-
+    setImage(imagePath);
+}
+void EditMenu::setImage(const QString & imagePath)
+{
     QImage *imageObject = new QImage();
     imageObject->load(imagePath);
     QPixmap image = QPixmap::fromImage(*imageObject);
@@ -77,6 +93,9 @@ void EditMenu::on_UploadNewPicture_clicked()
     scene->setSceneRect(image.rect());
     ui->imgDisplay->setScene(scene);
     ui->imgDisplay->fitInView(scene->itemsBoundingRect(), Qt::KeepAspectRatio);
+    item->setImgPath(imagePath.toStdString());
 
-
+    QString saveName = ui->editName->text();
+    saveName.append(".jpg");
+    imageObject->save(saveName);
 }

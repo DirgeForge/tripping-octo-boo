@@ -42,7 +42,8 @@ HEADERS  += \
     mainwindow.h \
     backend/include/iviewable.h \
     introwindow.h \
-    backend/include/fooditem_serialize.h
+    backend/include/fooditem_serialize.h \
+    backend/include/iserializable.h
 
 FORMS    += \
     employeemenu.ui \

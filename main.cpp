@@ -6,7 +6,6 @@
 #include "barchair.h"
 #include "Menu.h"
 #include "editmenu.h"
-#include "additem.h"
 #include "introwindow.h"
 
 // --- includes for the backend ---
