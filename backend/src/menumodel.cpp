@@ -5,15 +5,17 @@
 #include "../include/fooditem.h"
 #include "../include/fooditem_serialize.h"
 
-MenuModel::MenuModel() : filepath("fooditems.txt")
+MenuModel::MenuModel() : filepath(":/res/MenuDB.txt")
 {
-	serializer = std::make_shared<FoodItem_Serialize>();
-	this->initialize();
+    FoodItem_Serialize fItemS;
+    serializer = std::make_shared<FoodItem_Serialize>( fItemS);
+    this->initialize();
 }
 
 /**
 * Initializes the model from serialized files containing various information.
 * The model default pathname is: fooditems.txt
+*
 */
 void MenuModel::initialize()
 {
@@ -26,7 +28,7 @@ void MenuModel::initialize()
 		if (isalpha(objdata.peek()))
 		{
 			IItem * item = new FoodItem;
-			unserialize(objdata, item);
+            unserialize(objdata, item);
 			items.push_back(std::unique_ptr<IItem>(item));
 		}
 	}

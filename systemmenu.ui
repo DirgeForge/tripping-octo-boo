@@ -459,7 +459,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Edit Menu</string>
+    <string>Add Item to Menu</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">

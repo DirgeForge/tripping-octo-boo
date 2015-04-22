@@ -5,6 +5,7 @@
 #include "Menu.h"
 
 int RestTable::totalTables(0);
+GraphicsView *RestTable::masterView = NULL;
 
 RestTable::RestTable() : color(166, 45, 13)
 {
@@ -120,6 +121,7 @@ void RestTable::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 void RestTable::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
-    Form *showBox = new Form(tableID);
+
+    Menu *showBox = new Menu(tableID, masterView);
     showBox->show();
 }

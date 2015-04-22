@@ -1,6 +1,7 @@
 #include <QtWidgets>
 #include "systemmenu.h"
 #include "ui_systemmenu.h"
+#include "editmenu.h"
 
 SystemMenu::SystemMenu(QWidget *parent) :
     QDialog(parent),
@@ -47,4 +48,10 @@ SystemMenu::~SystemMenu()
 void SystemMenu::on_power_clicked()
 {
     exit(0);
+}
+
+void SystemMenu::on_pushButton_clicked()
+{
+    EditMenu * w = new EditMenu();
+    w->show();
 }

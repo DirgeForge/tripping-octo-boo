@@ -1,0 +1,2 @@
+TITLE Jellyfish DESC fresh caught jellies CATEGORY 4 IMGPATH C:/Users/Public/Pictures/Sample Pictures/Jellyfish.jpg PRICE 55 INSEASON 1 DISCOUNT 5 ALLERGENS END
+TITLE Koala Wings DESC fried koala legs CATEGORY 0 IMGPATH C:/Users/Public/Pictures/Sample Pictures/Koala.jpg PRICE 15 INSEASON 1 DISCOUNT 0 ALLERGENS END

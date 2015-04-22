@@ -7,6 +7,7 @@
 #include "Menu.h"
 #include "editmenu.h"
 #include "introwindow.h"
+#include "graphicsview.h"
 
 // --- includes for the backend ---
 #include "backend/include/menucontroller.h"
@@ -16,49 +17,7 @@
 
 #include <math.h>
 
-class GraphicsView : public QGraphicsView, public IViewable
-{
-/* --- control and model variables (these should be private) ---
-   pass these pointers to any sub-windows so they can modify the
-   model state on event triggers.
-   all modifications should be done via control's member functions. */
-private:
-    MenuController * control;
-    MenuModel * model;
-// --- end variables for control and model ---
 
-public:
-    GraphicsView(QGraphicsScene *scene) : QGraphicsView(scene)
-    {
-        initBackend();
-    }
-
-// --- backend-related functions ---
-public:
-    void initBackend()
-    {
-        this->control = new MenuController(model, this);
-    }
-    void update()
-    {
-        // get model state via the pointer
-    }
-    MenuController * getControl()
-    {
-        return control;
-    }
-    MenuModel * getModel()
-    {
-        return model;
-    }
-
-// --- end function ---
-
-protected:
-    virtual void resizeEvent(QResizeEvent *) Q_DECL_OVERRIDE
-    {
-    }
-};
 int screen_width;
 int screen_height;
 
@@ -155,20 +114,25 @@ int main(int argc, char *argv[])
 
     loadRestaurant(scene);
 
-    GraphicsView view(&scene);
-    view.setRenderHint(QPainter::Antialiasing);
-    view.setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
-
-    view.showFullScreen();
-    view.fitInView(scene.sceneRect());
 
 
-    view.setBackgroundBrush(QColor(238, 238, 238));
+    GraphicsView *view = new GraphicsView(&scene);
+    view->setRenderHint(QPainter::Antialiasing);
+    view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+
+    RestTable::masterView = view;
+    BarChair::masterView = view;
+
+    view->showFullScreen();
+    view->fitInView(scene.sceneRect());
 
 
-    view.show();
+    view->setBackgroundBrush(QColor(238, 238, 238));
 
-    IntroWindow *login = new IntroWindow(&view);
+
+    view->show();
+
+    IntroWindow *login = new IntroWindow(view);
     login->show();
 
 

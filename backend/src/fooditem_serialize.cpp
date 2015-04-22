@@ -25,7 +25,7 @@ void FoodItem_Serialize::unserialize(std::istream &in, void* fooditem)
 	FoodItem * f = static_cast<FoodItem*>(fooditem);
 	std::string token;
     std::string tokenOrder[] = { "TITLE", "DESC", "CATEGORY", "IMGPATH", "PRICE", "INSEASON", "DISCOUNT", "ALLERGENS", "END" };
-	std::string buffer[] = { "", "", "", "" };
+    std::string buffer[] = { "", "", "", "", "", "", "" };
 
 	int i = 0;
 	in >> token;

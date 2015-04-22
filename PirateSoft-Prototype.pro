@@ -23,6 +23,7 @@ SOURCES += main.cpp \
     introwindow.cpp \
     backend/src/fooditem_serialize.cpp
 
+
 HEADERS  += \
     resttable.h \
     employeemenu.h \
@@ -43,7 +44,8 @@ HEADERS  += \
     backend/include/iviewable.h \
     introwindow.h \
     backend/include/fooditem_serialize.h \
-    backend/include/iserializable.h
+    backend/include/iserializable.h \
+    graphicsview.h
 
 FORMS    += \
     employeemenu.ui \
@@ -52,5 +54,4 @@ FORMS    += \
     Menu.ui \
     receipt.ui
 
-DISTFILES += \
-    backend/src/fooditems.txt
+RESOURCES +=

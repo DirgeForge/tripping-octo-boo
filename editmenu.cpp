@@ -58,7 +58,7 @@ void EditMenu::on_save_changes_clicked()
     item->setPrice(ui->editPrice->value());
     item->setTitle(ui->editName->text().toStdString());
 
-    std::ofstream saveToMenu("MenuDB.txt", std::ios::out | std::ios::app);
+    std::ofstream saveToMenu(":/res/MenuDB.txt", std::ios::out | std::ios::app);
     FoodItem_Serialize output;
     output.serialize(saveToMenu,item);
     saveToMenu.close();
@@ -98,4 +98,9 @@ void EditMenu::setImage(const QString & imagePath)
     saveName.append(".jpg");
     imageObject->save(saveName);
     item->setImgPath(saveName.toStdString());
+}
+
+void EditMenu::on_remove_item_clicked()
+{
+
 }

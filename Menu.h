@@ -1,35 +1,44 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include "editmenu.h"
-
-#include "receipt.h"
-
-#include <QWidget>
+#include <QMainWindow>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QString>
+#include <QTabWidget>
+#include <QListWidget>
+#include <QListView>
+#include <QDesktopWidget>
+#include "graphicsview.h"
 
 namespace Ui {
-class Form;
+class Menu;
 }
 
-class Form : public QWidget
+class Menu : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit Form(int, QWidget *parent = 0);
-    ~Form();
+    explicit Menu(int, GraphicsView*, QWidget *parent = 0);
+    ~Menu();
 
 private slots:
 
-    void on_pushButton_4_clicked();
-
-    void on_pushButton_3_clicked();
-
     void on_pushButton_clicked();
 
+    void on_pushButton_5_pressed();
+
+    void on_ClearTable_clicked();
+
+    void on_pushButton_6_clicked();
+
+    void on_addItem_clicked();
+
 private:
-    Ui::Form *ui;
-    int tableNum;
+    Ui::Menu *ui;
+    //Viand *Orange;
 };
 
 #endif // MENU_H

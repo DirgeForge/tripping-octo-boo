@@ -14,10 +14,12 @@
 
 
 #include<QGraphicsItem>
+#include "graphicsview.h"
 
 class BarChair : public QGraphicsItem
 {
 public:
+    static GraphicsView *masterView;
     BarChair();
     ~BarChair();
 

@@ -32,6 +32,8 @@ private slots:
 
     void on_UploadNewPicture_clicked();
 
+    void on_remove_item_clicked();
+
 private:
     void setImage(const QString &imagePath);
     Ui::EditMenu *ui;

@@ -13,11 +13,13 @@
 
 
 #include<QGraphicsItem>
-
+#include<QGraphicsView>
+#include "graphicsview.h"
 
 class RestTable : public QGraphicsItem
 {
 public:
+    static GraphicsView *masterView;
     RestTable();
     RestTable(bool);
 

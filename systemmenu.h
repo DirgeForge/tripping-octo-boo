@@ -37,6 +37,8 @@ protected:
 private slots:
     void on_power_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::SystemMenu *ui;
     QColor color;

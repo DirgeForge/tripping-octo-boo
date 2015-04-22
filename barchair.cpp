@@ -5,6 +5,7 @@
 #include "Menu.h"
 
 int BarChair::totalChairs(0);
+GraphicsView *BarChair::masterView = NULL;
 
 BarChair::BarChair()
 {
@@ -40,6 +41,6 @@ void BarChair::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 void BarChair::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
-    Form *showBox = new Form(chairID);
+    Menu *showBox = new Menu(chairID, masterView);
     showBox->show();
 }
