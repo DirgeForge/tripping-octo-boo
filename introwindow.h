@@ -16,6 +16,8 @@
 #include <QDateTime>
 #include <QGraphicsView>
 
+#include "restaurantlayout.h"
+
 class IntroWindow : public QMainWindow
 {
     Q_OBJECT
@@ -27,7 +29,7 @@ private slots:
     void login_clicked();
 
 public:
-    IntroWindow(QGraphicsView *passView);
+    IntroWindow();
     ~IntroWindow();
 
 protected:
@@ -59,9 +61,6 @@ private:
     QPushButton *zero;
     QPushButton *login;
 
-    QGraphicsView *view;
-
-    //QWidget *whiteBox;
 };
 
 #endif // MAINWINDOW_H

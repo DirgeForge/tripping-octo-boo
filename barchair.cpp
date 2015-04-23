@@ -41,6 +41,6 @@ void BarChair::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
 void BarChair::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
-    Menu *showBox = new Menu(chairID, masterView);
-    showBox->show();
+    //Menu *showBox = new Menu(chairID, masterView);
+    //showBox->show();
 }

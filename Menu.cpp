@@ -1,8 +1,8 @@
 #include "Menu.h"
 #include "ui_Menu.h"
 #include "editmenu.h"
-
-Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
+//Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
+Menu::Menu(int num,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Menu)
 {
@@ -14,8 +14,7 @@ Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
     //ui->foodCategories->tabBar()->setStyleSheet("background: blue");
     //ui->OrderList->setW
 
-     masterView->initMenu();
-
+    //masterView->initMenu();
 
 
     this->show();

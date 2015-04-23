@@ -21,7 +21,8 @@ class Menu : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Menu(int, GraphicsView*, QWidget *parent = 0);
+    explicit Menu(int num,QWidget *parent = 0);
+    //explicit Menu(int, GraphicsView*, QWidget *parent = 0);
     ~Menu();
 
 private slots:

@@ -1,11 +1,8 @@
 #include "introwindow.h"
 
-IntroWindow::IntroWindow(QGraphicsView * passView)
+IntroWindow::IntroWindow()
 {
     this->setStyleSheet("background:rgb(98,177,109);");
-
-    // screen has info on current desktop screen
-    //QRect screen = QApplication::desktop()->screenGeometry();
 
     //////////////////////// INTRO WORD ////////////////////////////////////
 
@@ -17,7 +14,6 @@ IntroWindow::IntroWindow(QGraphicsView * passView)
     // label covers all of the text
     Intro->adjustSize();
     Intro->setGeometry(((screen.center().x())-((Intro->width())/2)),((2*(((screen.center().y())/16)))-((Intro->height())/2)),Intro->width(),Intro->height());
-    //Intro->setStyleSheet("background: red");
     Intro->setScaledContents(true);
 
     QLabel *Intro2 = new QLabel;
@@ -28,7 +24,6 @@ IntroWindow::IntroWindow(QGraphicsView * passView)
     // label covers all of the text
     Intro2->adjustSize();
     Intro2->setGeometry(((screen.center().x())-((Intro2->width())/2)),((6*(((screen.center().y())/16)))-((Intro2->height())/2)),Intro2->width(),Intro2->height());
-    //Intro2->setStyleSheet("background: blue");
     Intro2->setScaledContents(true);
 
     QLabel *Intro3 = new QLabel;
@@ -39,7 +34,6 @@ IntroWindow::IntroWindow(QGraphicsView * passView)
     // label covers all of the text
     Intro3->adjustSize();
     Intro3->setGeometry(((screen.center().x())-((Intro3->width())/2)),((10*(((screen.center().y())/16)))-((Intro3->height())/2)),Intro3->width(),Intro3->height());
-    //Intro3->setStyleSheet("background: yellow");
     Intro3->setScaledContents(true);
 
     ////////////////////////// END OF INTRO WORD /////////////////////////
@@ -104,23 +98,13 @@ IntroWindow::IntroWindow(QGraphicsView * passView)
 
     buttonLength = (screen.width()/24);
 
-    //QFont font = five->font();
-
     // Login and Backspace text size
     int loginButton_size = (buttonLength/4);
-    // All number buttons text size
-    //font.setPointSize(buttonLength/2); // 45
-    QFont font("Old English Text MT",buttonLength/2);
 
+    // All number buttons text size
+    QFont font("Old English Text MT",buttonLength/2);
     five->setFont(font);
 
-    //QPixmap pixmap(buttonLength,buttonLength);
-    //pixmap.fill(QColor(255,255,255));
-
-    //QPainter painter(&pixmap);
-    //painter.drawEllipse(0,0,buttonLength,buttonLength);
-
-    //five->setIcon(QIcon(pixmap));
 
     // button is squared and is sized by (comp screen horizontal length / 16)
     five->setGeometry(0,0,buttonLength,buttonLength);
@@ -299,9 +283,7 @@ IntroWindow::IntroWindow(QGraphicsView * passView)
     time->setGeometry(9*(screen.width()/128),3*(screen.height()/16),date->width(),date->height());
     /////////////////////////// END OF TIME & DATE
 
-
-    view = passView;
-   // this->showFullScreen();
+    this->showFullScreen();
 }
 
 IntroWindow::~IntroWindow()
@@ -348,12 +330,12 @@ void IntroWindow::login_clicked()
 {
     if (numpadDisplay->text().size() == 8)
     {
-        if (numpadDisplay->text() == "12345678")
+        if (numpadDisplay->text() == "11111111")
         {
-            IntroWindow::hide();
-           // QMainWindow *w = new QMainWindow;
-           // w->setWindowTitle("Next Window");
-           // w->show();
+            RestaurantLayout *w = new RestaurantLayout;
+            //QMainWindow *w = new QMainWindow;
+            w->setWindowTitle("Next Window");
+            w->show();
         }
         else
         {
@@ -370,15 +352,7 @@ void IntroWindow::paintEvent(QPaintEvent *event)
 {
     Q_UNUSED(event);
     QPainter painter(this);
-
-    //painter.setPen(Qt::NoPen);
-    //painter.setRenderHint(QPainter::Antialiasing);
     painter.setRenderHint(QPainter::HighQualityAntialiasing);
-
-    // Draws Black border of numpad display
-    //painter.setBrush(QBrush(QColor(0,0,0)));
-    //QRect numpadBorder(0,0,(9*(screen.center().x()/16)),(4*(screen.center().y()/16)));
-    //painter.drawRoundRect(((screen.center().x())-((numpadBorder.width())/2)),(((screen.center().y())-((numpadBorder.height())/2))-(screen.height()/12)),numpadBorder.width(),numpadBorder.height(),15,30);
 
     // Draws Green border of the display
     painter.setBrush(QBrush(QColor(74,168,44)));
@@ -460,6 +434,4 @@ void IntroWindow::paintEvent(QPaintEvent *event)
     painter.drawRoundRect((date->pos().x()) - (screen.width()/64),(date->pos().y()) - (screen.height()/64),date->width() + (2*(screen.width()/64)),date->height() + (2*(screen.height()/64)),15,15);
     painter.drawRoundRect((time->pos().x()) - (screen.width()/128),(time->pos().y()) - (screen.height()/128),time->width() + (2*(screen.width()/128)),time->height() + (2*(screen.height()/128)),15,15);
 
-    //(screen.width()/16,screen.height()/16,date->width(),date->height()
-    //9*(screen.width()/128),3*(screen.height()/16),date->width(),date->height()
 }
