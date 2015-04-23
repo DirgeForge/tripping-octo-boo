@@ -1,5 +1,5 @@
-#ifndef SYSTEMICON_H
-#define SYSTEMICON_H
+#ifndef SYSTEMMENU_H
+#define SYSTEMMENU_H
 
 /*  Controls UI for system menu and icon
  *
@@ -9,39 +9,21 @@
  *
  */
 
-
-#include <QGraphicsItem>
-#include <QDialog>
 #include <QDateTime>
+#include <QMainWindow>
+#include <QLabel>
+#include <QPushButton>
 
-namespace Ui {
-class SystemMenu;
-}
-
-class SystemMenu : public QDialog, public QGraphicsItem
+class SystemMenu : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    SystemMenu(QColor);
-    explicit SystemMenu(QWidget *parent = 0);
-
-    QRectF boundingRect() const Q_DECL_OVERRIDE;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) Q_DECL_OVERRIDE;
-
+    SystemMenu();
     ~SystemMenu();
 
-protected:
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) Q_DECL_OVERRIDE;
-
-private slots:
-    void on_power_clicked();
-
-    void on_pushButton_clicked();
-
 private:
-    Ui::SystemMenu *ui;
-    QColor color;
+
 };
 
 

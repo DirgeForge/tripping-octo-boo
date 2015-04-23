@@ -21,6 +21,7 @@
 
 #include "tablebutton.h"
 #include "employeemenu.h"
+#include "systemmenu.h"
 
 class RestaurantLayout : public QMainWindow
 {
@@ -30,6 +31,7 @@ private slots:
     void edit_clicked();
     void rotate_clicked();
     void employee_clicked();
+    void system_clicked();
 
 public:
     RestaurantLayout();
@@ -45,6 +47,7 @@ private:
     QPushButton *editButton;
     QPushButton *rotateButton;
     QPushButton *employeeButton;
+    QPushButton *systemButton;
 };
 
 #endif // RESTAURANTLAYOUT_H

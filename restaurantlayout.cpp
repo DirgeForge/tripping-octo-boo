@@ -116,6 +116,12 @@ RestaurantLayout::RestaurantLayout()
     employeeButton->setFont(QFont("Old English Text MT",19));
     employeeButton->setText("Employee");
 
+    systemButton = new QPushButton;
+    systemButton->setParent(this);
+    systemButton->setGeometry((11*screen.width())/32,((28*screen.height())/32),(3*screen.height())/32,(3*screen.height())/32);
+    systemButton->setFont(QFont("Old English Text MT",19));
+    systemButton->setText("System");
+
     //////////////////////// ON CLICKED FUNCTIONS //////////////////////////////////////
 
     QObject::connect(table1, SIGNAL(pressed()), this, SLOT(table_pressed()));
@@ -142,6 +148,7 @@ RestaurantLayout::RestaurantLayout()
     QObject::connect(editButton, SIGNAL(clicked()), this, SLOT(edit_clicked()));
     QObject::connect(rotateButton, SIGNAL(clicked()),this,SLOT(rotate_clicked()));
     QObject::connect(employeeButton, SIGNAL(clicked()), this, SLOT(employee_clicked()));
+    QObject::connect(systemButton, SIGNAL(clicked()), this, SLOT(system_clicked()));
 
     //////////////////////// END OF ON CLICKED FUNCTIONS //////////////////////////////////
 
@@ -163,6 +170,12 @@ void RestaurantLayout::employee_clicked()
 {
     //QMainWindow *w = new QMainWindow;
     EmployeeMenu *w = new EmployeeMenu;
+    w->show();
+}
+
+void RestaurantLayout::system_clicked()
+{
+    SystemMenu *w = new SystemMenu;
     w->show();
 }
 
