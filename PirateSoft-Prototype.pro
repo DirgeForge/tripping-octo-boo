@@ -11,7 +11,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     resttable.cpp \
-    employeemenu.cpp \
     systemmenu.cpp \
     barchair.cpp \
     editmenu.cpp \
@@ -23,12 +22,12 @@ SOURCES += main.cpp \
     introwindow.cpp \
     backend/src/fooditem_serialize.cpp \
     restaurantlayout.cpp \
-    tablebutton.cpp
+    tablebutton.cpp \
+    employeemenu.cpp
 
 
 HEADERS  += \
     resttable.h \
-    employeemenu.h \
     systemmenu.h \
     barchair.h \
     editmenu.h \
@@ -49,13 +48,14 @@ HEADERS  += \
     backend/include/iserializable.h \
     graphicsview.h \
     restaurantlayout.h \
-    tablebutton.h
+    tablebutton.h \
+    employeemenu.h
 
 FORMS    += \
-    employeemenu.ui \
     systemmenu.ui \
     editmenu.ui \
     Menu.ui \
-    receipt.ui
+    receipt.ui \
+    employeemenu.ui
 
 RESOURCES +=

@@ -161,8 +161,8 @@ void RestaurantLayout::edit_clicked()
 
 void RestaurantLayout::employee_clicked()
 {
-    QMainWindow *w = new QMainWindow;
-    //EmployeeMenu *w = new EmployeeMenu(QColor(0,0,0));
+    //QMainWindow *w = new QMainWindow;
+    EmployeeMenu *w = new EmployeeMenu;
     w->show();
 }
 
@@ -210,3 +210,4 @@ void RestaurantLayout::paintEvent(QPaintEvent *event)
     rotateButton->setIconSize(QSize(rotateButton->width(),rotateButton->height()));
 
 }
+
