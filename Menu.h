@@ -44,6 +44,7 @@ private slots:
 private:
     Ui::Menu *ui;
     //Viand *Orange;
+    int tableNum;
 };
 
 #endif // MENU_H

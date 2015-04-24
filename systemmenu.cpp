@@ -4,7 +4,6 @@
 
 SystemMenu::SystemMenu()
 {
-    this->setGeometry(100,100,540,480);
     this->setStyleSheet("background: orange");
 
     QLabel *title = new QLabel;
@@ -34,6 +33,7 @@ SystemMenu::SystemMenu()
     power->setFont(QFont("",8));
     power->setText("Power");
     power->setStyleSheet("background: white");
+    connect(power, SIGNAL (released()), this, SLOT (power_button()));
 
     QPushButton *openRest = new QPushButton;
     openRest->setParent(this);
@@ -98,6 +98,13 @@ SystemMenu::SystemMenu()
     exit->setText("Restart System");
     exit->setStyleSheet("background: white");
 
+    this->showFullScreen();
+
+}
+
+void SystemMenu::power_button()
+{
+    exit(0);
 }
 
 SystemMenu::~SystemMenu()

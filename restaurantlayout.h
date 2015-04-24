@@ -18,10 +18,12 @@
 #include <QDate>
 #include <QDateTime>
 #include <QMouseEvent>
+#include <QVector>
 
 #include "tablebutton.h"
 #include "employeemenu.h"
 #include "systemmenu.h"
+#include "backend/include/fooditem.h"
 
 class RestaurantLayout : public QMainWindow
 {
@@ -37,6 +39,8 @@ public:
     RestaurantLayout();
     ~RestaurantLayout();
 
+    QVector<QVector<FoodItem*>*> getTableOrders() const;
+
 protected:
     void paintEvent(QPaintEvent *event);
 
@@ -48,6 +52,9 @@ private:
     QPushButton *rotateButton;
     QPushButton *employeeButton;
     QPushButton *systemButton;
+
+    // This holds the orders for each table using the table numbers as an index offset by 1
+    QVector<QVector<FoodItem*>*> * tableOrders = new QVector<QVector<FoodItem*>*>();
 };
 
 #endif // RESTAURANTLAYOUT_H

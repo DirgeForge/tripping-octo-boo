@@ -8,49 +8,61 @@ RestaurantLayout::RestaurantLayout()
     table1 = new TableButton(++tableCount,false);
     table1->setParent(this);
     table1->setGeometry((12 * screen.width())/64,(3 * screen.height())/64,table1->width(),table1->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table2 = new TableButton(++tableCount,false);
     table2->setParent(this);
     table2->setGeometry((21 * screen.width())/64,(3 * screen.height())/64,table2->width(),table2->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table3 = new TableButton(++tableCount,false);
     table3->setParent(this);
     table3->setGeometry((12 * screen.width())/64,(11 * screen.height())/64,table3->width(),table3->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table4 = new TableButton(++tableCount,false);
     table4->setParent(this);
     table4->setGeometry((21 * screen.width())/64,(11 * screen.height())/64,table4->width(),table4->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table5 = new TableButton(++tableCount,false);
     table5->setParent(this);
     table5->setGeometry((21 * screen.width())/64,(19 * screen.height())/64,table5->width(),table5->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table6 = new TableButton(++tableCount,false);
     table6->setParent(this);
     table6->setGeometry((12 * screen.width())/64,(23 * screen.height())/64,table6->width(),table6->height());
     table6->rotate();
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table7 = new TableButton(++tableCount,false);
     table7->setParent(this);
     table7->setGeometry((21 * screen.width())/64,(27 * screen.height())/64,table7->width(),table7->height());
+    QVector<FoodItem*> * orderList = new QVector<FoodItem*>();
+    tableOrders->push_back(orderList);
 
     // BOOTHS
 
     TableButton *table8 = new TableButton(++tableCount,true);
     table8->setParent(this);
     table8->setGeometry((30 * screen.width())/64,(3 * screen.height())/64,table8->width(),table8->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table9 = new TableButton(++tableCount,true);
     table9->setParent(this);
     table9->setGeometry((30 * screen.width())/64,(screen.height()/128)+ table8->pos().y() + table9->height(),table9->width(),table9->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table10 = new TableButton(++tableCount,true);
     table10->setParent(this);
     table10->setGeometry((30 * screen.width())/64,(screen.height()/128)+ table9->pos().y() + table10->height(),table10->width(),table10->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table11 = new TableButton(++tableCount,true);
     table11->setParent(this);
     table11->setGeometry((30 * screen.width())/64,(screen.height()/128)+ table10->pos().y() + table11->height(),table11->width(),table11->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     // rotate booths
 
@@ -58,21 +70,25 @@ RestaurantLayout::RestaurantLayout()
     table12->setParent(this);
     table12->rotate();
     table12->setGeometry((12 * screen.width())/64,((81 * screen.height())/128),table12->width(),table12->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table13 = new TableButton(++tableCount,true);
     table13->setParent(this);
     table13->rotate();
     table13->setGeometry(table12->x()+table13->width()+(screen.height()/128),table12->y(),table13->width(),table13->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table14 = new TableButton(++tableCount,true);
     table14->setParent(this);
     table14->rotate();
     table14->setGeometry(table13->x()+table14->width()+(screen.height()/128),table13->y(),table14->width(),table14->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table15 = new TableButton(++tableCount,true);
     table15->setParent(this);
     table15->rotate();
     table15->setGeometry(table14->x()+table15->width()+(screen.height()/128),table14->y(),table15->width(),table15->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     // tables on the side
 
@@ -80,21 +96,25 @@ RestaurantLayout::RestaurantLayout()
     table16->setParent(this);
     table16->rotate();
     table16->setGeometry((42 * screen.width())/64,(3 * screen.height())/64,table16->width(),table16->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table17 = new TableButton(++tableCount,false);
     table17->setParent(this);
     table17->rotate();
     table17->setGeometry(table16->x(),table16->y() + table16->height() + (2 * screen.height())/64,table17->width(),table17->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table18 = new TableButton(++tableCount,false);
     table18->setParent(this);
     table18->rotate();
     table18->setGeometry(table17->x(),table17->y() + table17->height() + (2 * screen.height())/64,table18->width(),table18->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     TableButton *table19 = new TableButton(++tableCount,false);
     table19->setParent(this);
     table19->rotate();
     table19->setGeometry(table18->x(),table18->y() + table18->height() + (2 * screen.height())/64,table19->width(),table19->height());
+    tableOrders->push_back(new QVector<FoodItem*>());
 
     // private members
 
@@ -156,9 +176,16 @@ RestaurantLayout::RestaurantLayout()
     this->showFullScreen();
 }
 
+QVector<QVector<FoodItem*>*> RestaurantLayout::getTableOrders() const
+{
+    return *tableOrders;
+}
+
 RestaurantLayout::~RestaurantLayout()
 {
     // DESTRUCTOR
+    //for (int i = 0; i < tableOrders->size(); ++i)
+    //    delete
 }
 
 void RestaurantLayout::edit_clicked()

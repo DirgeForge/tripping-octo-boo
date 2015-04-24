@@ -22,8 +22,8 @@ public:
     SystemMenu();
     ~SystemMenu();
 
-private:
-
+private slots:
+    void power_button();
 };
 
 
