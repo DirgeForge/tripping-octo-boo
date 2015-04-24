@@ -12,12 +12,21 @@ Menu::Menu(int num,QWidget *parent) :
     ui->tableNumDisplay->setText(qStr);
     //ui->foodCategories->setStyleSheet("QTabBar::tab {height: 200px, width: 200px; }");
     //ui->foodCategories->tabBar()->setStyleSheet("background: blue");
-    //ui->OrderList->setW
+    this->showFullScreen();
+    //masterView->initMenu(); //Doesn't work without Graphics view which a group member
+                              // said to get rid of for his restaurant layout to work.
 
-    //masterView->initMenu();
 
+    QVector<QStringList> tableOrders;
 
-    this->show();
+    QStringList orderFood;
+    orderFood << "item 1";
+    orderFood << "item 2";
+
+    tableOrders.push_back(orderFood);
+
+    ui->OrderList->addItems(tableOrders.at(0));
+
 }
 
 Menu::~Menu()
@@ -28,6 +37,7 @@ Menu::~Menu()
 int quantMilk = 1;
 void Menu::on_pushButton_clicked()
 {
+
 
    QString milk = "Milk";// x " + QString::number(quantMilk);
 
@@ -73,4 +83,9 @@ void Menu::on_addItem_clicked()
 {
     EditMenu * w = new EditMenu();
     w->show();
+}
+
+void Menu::on_backButton_clicked()
+{
+    this->close();
 }

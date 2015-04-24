@@ -8,8 +8,10 @@
 #include <QString>
 #include <QTabWidget>
 #include <QListWidget>
+#include <QStringList>
 #include <QListView>
 #include <QDesktopWidget>
+#include <QVector>
 #include "graphicsview.h"
 
 namespace Ui {
@@ -21,8 +23,8 @@ class Menu : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Menu(int num,QWidget *parent = 0);
-    //explicit Menu(int, GraphicsView*, QWidget *parent = 0);
+    // REMOVE GRAPHICSVIEW
+    explicit Menu(int, /*GraphicsView*,*/ QWidget *parent = 0);
     ~Menu();
 
 private slots:
@@ -36,6 +38,8 @@ private slots:
     void on_pushButton_6_clicked();
 
     void on_addItem_clicked();
+
+    void on_backButton_clicked();
 
 private:
     Ui::Menu *ui;
