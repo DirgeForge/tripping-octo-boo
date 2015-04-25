@@ -1,5 +1,6 @@
 #include "tablebutton.h"
 
+
 TableButton::TableButton()
 {
 
@@ -11,15 +12,16 @@ TableButton::TableButton(int tableNumber, bool setBooth)
     //++totalTables;
     tableID = tableNumber;
     setCursor(Qt::OpenHandCursor);
+    //setAcceptedMouseButtons(Qt::LeftButton);
 
     if (isBooth)
     {
         this->setGeometry(0,0,(screen.width()/ratio),(screen.height()/ratio));
 
         // Painter Startup
-        QPixmap table(width(),(height()));
-        table.fill(Qt::transparent);
-        QPainter painter(&table);
+        QPixmap temp(width(),(height()));
+        temp.fill(Qt::transparent);
+        QPainter painter(&temp);
         painter.setRenderHint(QPainter::HighQualityAntialiasing);
         painter.setPen(QPen(Qt::black, 5));
         painter.setBrush(QBrush(QColor(166,45,13)));
@@ -70,8 +72,9 @@ TableButton::TableButton(int tableNumber, bool setBooth)
         painter2.drawRoundedRect(bottomCushion,2,2);
 
         // END
-        this->setIcon(QIcon(booth));
-        this->setIconSize(QSize(width(),height()));
+//        this->setIcon(QIcon(booth));
+//        this->setIconSize(QSize(width(),height()));
+
     }
     else
     {
@@ -118,10 +121,12 @@ TableButton::TableButton(int tableNumber, bool setBooth)
         painter.drawText(QRect((width()/2)-(fm.width(QString::number(tableNumber))/2),(height()/2)-(fm.height()/2),width()/2,height()/2),QString::number(tableNumber));
 
         // END
-        this->setIcon(QIcon(table));
-        this->setIconSize(QSize(width(),height()));
+//        this->setIcon(QIcon(table));
+//        this->setIconSize(QSize(width(),height()));
     }
-    this->setStyleSheet("background: transparent");
+//    this->setStyleSheet("background: transparent");
+
+
 }
 
 TableButton::~TableButton()
@@ -249,6 +254,7 @@ void TableButton::rotate()
     this->setStyleSheet("background: transparent");
 }
 
+
 void TableButton::mousePressEvent(QMouseEvent *event)
 {
     setCursor(Qt::ClosedHandCursor);
@@ -258,8 +264,13 @@ void TableButton::mousePressEvent(QMouseEvent *event)
 
 void TableButton::mouseMoveEvent(QMouseEvent *event)
 {
+    //setMouseTracking(true);
     if (!isBooth)
+    {
+       //QPoint temp =  event->pos() - offset;
        this->move(mapToParent(event->pos() - offset));
+        //debug = QString::number(this->x()) + " " + QString::number(this->y());
+    }
     QPushButton::mouseMoveEvent(event);
 }
 

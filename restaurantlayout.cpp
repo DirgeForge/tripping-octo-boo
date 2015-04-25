@@ -4,99 +4,109 @@ RestaurantLayout::RestaurantLayout()
 {
     tableCount = 0;
 
-    TableButton *table1 = new TableButton(++tableCount,false);
-    table1 = new TableButton(++tableCount,false);
-    table1->setParent(this);
-    table1->setGeometry((12 * screen.width())/64,(3 * screen.height())/64,table1->width(),table1->height());
+    QGraphicsScene *scene = new QGraphicsScene(0,0,screen.width(),(26 * screen.height())/32);
 
-    TableButton *table2 = new TableButton(++tableCount,false);
-    table2->setParent(this);
-    table2->setGeometry((21 * screen.width())/64,(3 * screen.height())/64,table2->width(),table2->height());
+    RestTable *table1 = new RestTable(++tableCount,false);
+    scene->addItem(table1);
+    table1->setPos((12 * screen.width())/64,(3 * screen.height())/64);
 
-    TableButton *table3 = new TableButton(++tableCount,false);
-    table3->setParent(this);
-    table3->setGeometry((12 * screen.width())/64,(11 * screen.height())/64,table3->width(),table3->height());
+    RestTable *table2 = new RestTable(++tableCount,false);
+    scene->addItem(table2);
+    table2->setPos((21 * screen.width())/64,(3 * screen.height())/64);
 
-    TableButton *table4 = new TableButton(++tableCount,false);
-    table4->setParent(this);
-    table4->setGeometry((21 * screen.width())/64,(11 * screen.height())/64,table4->width(),table4->height());
+    RestTable *table3 = new RestTable(++tableCount,false);
+    scene->addItem(table3);
+    table3->setPos((12 * screen.width())/64,(11 * screen.height())/64);
 
-    TableButton *table5 = new TableButton(++tableCount,false);
-    table5->setParent(this);
-    table5->setGeometry((21 * screen.width())/64,(19 * screen.height())/64,table5->width(),table5->height());
+    RestTable *table4 = new RestTable(++tableCount,false);
+    scene->addItem(table4);
+    table4->setPos((21 * screen.width())/64,(11 * screen.height())/64);
 
-    TableButton *table6 = new TableButton(++tableCount,false);
-    table6->setParent(this);
-    table6->setGeometry((12 * screen.width())/64,(23 * screen.height())/64,table6->width(),table6->height());
+    RestTable *table5 = new RestTable(++tableCount,false);
+    scene->addItem(table5);
+    table5->setPos((21 * screen.width())/64,(19 * screen.height())/64);
+
+    RestTable *table6 = new RestTable(++tableCount,false);
+    scene->addItem(table6);
+    table6->setPos((12 * screen.width())/64,(23 * screen.height())/64);
     table6->rotate();
 
-    TableButton *table7 = new TableButton(++tableCount,false);
-    table7->setParent(this);
-    table7->setGeometry((21 * screen.width())/64,(27 * screen.height())/64,table7->width(),table7->height());
+    RestTable *table7 = new RestTable(++tableCount,false);
+    scene->addItem(table7);
+    table7->setPos((21 * screen.width())/64,(27 * screen.height())/64);
 
     // BOOTHS
 
-    TableButton *table8 = new TableButton(++tableCount,true);
-    table8->setParent(this);
-    table8->setGeometry((30 * screen.width())/64,(3 * screen.height())/64,table8->width(),table8->height());
+    RestTable *table8 = new RestTable(++tableCount,true);
+    scene->addItem(table8);
+    table8->setPos((30 * screen.width())/64,(3 * screen.height())/64);
 
-    TableButton *table9 = new TableButton(++tableCount,true);
-    table9->setParent(this);
-    table9->setGeometry((30 * screen.width())/64,(screen.height()/128)+ table8->pos().y() + table9->height(),table9->width(),table9->height());
+    RestTable *table9 = new RestTable(++tableCount,true);
+    scene->addItem(table9);
+    table9->setPos((30 * screen.width())/64,((8*screen.height())/64)+ table8->pos().y());
 
-    TableButton *table10 = new TableButton(++tableCount,true);
-    table10->setParent(this);
-    table10->setGeometry((30 * screen.width())/64,(screen.height()/128)+ table9->pos().y() + table10->height(),table10->width(),table10->height());
+    RestTable *table10 = new RestTable(++tableCount,true);
+    scene->addItem(table10);
+    table10->setPos((30 * screen.width())/64,((8*screen.height())/64)+ table9->pos().y());
 
-    TableButton *table11 = new TableButton(++tableCount,true);
-    table11->setParent(this);
-    table11->setGeometry((30 * screen.width())/64,(screen.height()/128)+ table10->pos().y() + table11->height(),table11->width(),table11->height());
+    RestTable *table11 = new RestTable(++tableCount,true);
+    scene->addItem(table11);
+    table11->setPos((30 * screen.width())/64,((8*screen.height())/64)+ table10->pos().y());
 
-    // rotate booths
+//    // rotate booths
 
-    TableButton *table12 = new TableButton(++tableCount,true);
-    table12->setParent(this);
+    RestTable *table12 = new RestTable(++tableCount,true);
+    scene->addItem(table12);
     table12->rotate();
-    table12->setGeometry((12 * screen.width())/64,((81 * screen.height())/128),table12->width(),table12->height());
+    table12->setPos((12 * screen.width())/64,((81 * screen.height())/128));
 
-    TableButton *table13 = new TableButton(++tableCount,true);
-    table13->setParent(this);
+    RestTable *table13 = new RestTable(++tableCount,true);
+    scene->addItem(table13);
     table13->rotate();
-    table13->setGeometry(table12->x()+table13->width()+(screen.height()/128),table12->y(),table13->width(),table13->height());
+    table13->setPos(table12->x()+((8*screen.height())/64),table12->y());
 
-    TableButton *table14 = new TableButton(++tableCount,true);
-    table14->setParent(this);
+    RestTable *table14 = new RestTable(++tableCount,true);
+    scene->addItem(table14);
     table14->rotate();
-    table14->setGeometry(table13->x()+table14->width()+(screen.height()/128),table13->y(),table14->width(),table14->height());
+    table14->setPos(table13->x()+((8*screen.height())/64),table13->y());
 
-    TableButton *table15 = new TableButton(++tableCount,true);
-    table15->setParent(this);
+    RestTable *table15 = new RestTable(++tableCount,true);
+    scene->addItem(table15);
     table15->rotate();
-    table15->setGeometry(table14->x()+table15->width()+(screen.height()/128),table14->y(),table15->width(),table15->height());
+    table15->setPos(table14->x()+((8*screen.height())/64),table14->y());
 
-    // tables on the side
+//    // tables on the side
 
-    TableButton *table16 = new TableButton(++tableCount,false);
-    table16->setParent(this);
+    RestTable *table16 = new RestTable(++tableCount,false);
+    scene->addItem(table16);
     table16->rotate();
-    table16->setGeometry((42 * screen.width())/64,(3 * screen.height())/64,table16->width(),table16->height());
+    table16->setPos((42 * screen.width())/64,(3 * screen.height())/64);
 
-    TableButton *table17 = new TableButton(++tableCount,false);
-    table17->setParent(this);
+    RestTable *table17 = new RestTable(++tableCount,false);
+    scene->addItem(table17);
     table17->rotate();
-    table17->setGeometry(table16->x(),table16->y() + table16->height() + (2 * screen.height())/64,table17->width(),table17->height());
+    table17->setPos(table16->x(),table16->y() + (12 * screen.height())/64);
 
-    TableButton *table18 = new TableButton(++tableCount,false);
-    table18->setParent(this);
+    RestTable *table18 = new RestTable(++tableCount,false);
+    scene->addItem(table18);
     table18->rotate();
-    table18->setGeometry(table17->x(),table17->y() + table17->height() + (2 * screen.height())/64,table18->width(),table18->height());
+    table18->setPos(table17->x(),table17->y() + (12 * screen.height())/64);
 
-    TableButton *table19 = new TableButton(++tableCount,false);
-    table19->setParent(this);
+    RestTable *table19 = new RestTable(++tableCount,false);
+    scene->addItem(table19);
     table19->rotate();
-    table19->setGeometry(table18->x(),table18->y() + table18->height() + (2 * screen.height())/64,table19->width(),table19->height());
+    table19->setPos(table18->x(),table18->y() + (12 * screen.height())/64);
 
     // private members
+
+    view = new QGraphicsView(this);
+    view->setGeometry(0,0,screen.width(),(26 * screen.height())/32);
+    view->setStyleSheet("background: orange");
+    view->setParent(this);
+    view->setRenderHint(QPainter::Antialiasing);
+    view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+    view->show();
+    view->setScene(scene);
 
     editButton = new QPushButton;
     editButton->setParent(this);
@@ -108,7 +118,7 @@ RestaurantLayout::RestaurantLayout()
     rotateButton->setParent(this);
     rotateButton->setGeometry((5*screen.width())/32,((28*screen.height())/32),(3*screen.height())/32,(3*screen.height())/32);
 
-    tableHighlighted = new TableButton();
+    tableHighlighted = new RestTable();
 
     employeeButton = new QPushButton;
     employeeButton->setParent(this);
@@ -124,26 +134,26 @@ RestaurantLayout::RestaurantLayout()
 
     //////////////////////// ON CLICKED FUNCTIONS //////////////////////////////////////
 
-    QObject::connect(table1, SIGNAL(pressed()), this, SLOT(table_pressed()));
-    QObject::connect(table2, SIGNAL(pressed()), this, SLOT(table_pressed()));
-    QObject::connect(table3, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table4, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table4, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table5, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table6, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table7, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table8, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table9, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table10, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table11, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table12, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table13, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table14, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table15, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table16, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table17, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table18, SIGNAL(pressed()),this,SLOT(table_pressed()));
-    QObject::connect(table19, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table1, SIGNAL(pressed()), this, SLOT(table_pressed()));
+//    QObject::connect(table2, SIGNAL(pressed()), this, SLOT(table_pressed()));
+//    QObject::connect(table3, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table4, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table4, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table5, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table6, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table7, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table8, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table9, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table10, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table11, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table12, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table13, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table14, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table15, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table16, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table17, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table18, SIGNAL(pressed()),this,SLOT(table_pressed()));
+//    QObject::connect(table19, SIGNAL(pressed()),this,SLOT(table_pressed()));
 
     QObject::connect(editButton, SIGNAL(clicked()), this, SLOT(edit_clicked()));
     QObject::connect(rotateButton, SIGNAL(clicked()),this,SLOT(rotate_clicked()));
@@ -152,6 +162,7 @@ RestaurantLayout::RestaurantLayout()
 
     //////////////////////// END OF ON CLICKED FUNCTIONS //////////////////////////////////
 
+
     // END
     this->showFullScreen();
 }
@@ -159,6 +170,27 @@ RestaurantLayout::RestaurantLayout()
 RestaurantLayout::~RestaurantLayout()
 {
     // DESTRUCTOR
+}
+
+void RestaurantLayout::mouseMoveEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+}
+
+void RestaurantLayout::mousePressEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+
+}
+
+void RestaurantLayout::mouseReleaseEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
+}
+
+void RestaurantLayout::mouseDoubleClickEvent(QMouseEvent *event)
+{
+    Q_UNUSED(event);
 }
 
 void RestaurantLayout::edit_clicked()
@@ -181,19 +213,19 @@ void RestaurantLayout::system_clicked()
 
 void RestaurantLayout::table_pressed()
 {
-    TableButton *currentButton = (TableButton*)sender();
-    if (!(tableHighlighted == currentButton)) // highlights table if it wasnt selected before
-    {
-        tableHighlighted->setStyleSheet("background: transparent");
-        currentButton->setStyleSheet("background: red");
-        tableHighlighted = currentButton;
-    }
+//    TableButton *currentButton = (TableButton*)sender();
+//    if (!(tableHighlighted == currentButton)) // highlights table if it wasnt selected before
+//    {
+//        tableHighlighted->setStyleSheet("background: transparent");
+//        currentButton->setStyleSheet("background: red");
+//        tableHighlighted = currentButton;
+//    }
 }
 
 void RestaurantLayout::rotate_clicked()
 {
     tableHighlighted->rotate();
-    tableHighlighted->setStyleSheet("background: red");
+//    tableHighlighted->setStyleSheet("background: red");
 }
 
 void RestaurantLayout::paintEvent(QPaintEvent *event)

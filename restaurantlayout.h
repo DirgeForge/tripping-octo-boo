@@ -18,8 +18,11 @@
 #include <QDate>
 #include <QDateTime>
 #include <QMouseEvent>
+#include <QDebug>
+#include <QGraphicsView>
+#include <QGraphicsScene>
 
-#include "tablebutton.h"
+#include "resttable.h"
 #include "employeemenu.h"
 #include "systemmenu.h"
 
@@ -36,6 +39,11 @@ private slots:
 public:
     RestaurantLayout();
     ~RestaurantLayout();
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void mouseDoubleClickEvent(QMouseEvent *event);
+
 
 protected:
     void paintEvent(QPaintEvent *event);
@@ -43,11 +51,13 @@ protected:
 private:
     QRect screen {QApplication::desktop()->screenGeometry()};
     int tableCount;
-    TableButton *tableHighlighted;
+    RestTable *tableHighlighted;
     QPushButton *editButton;
     QPushButton *rotateButton;
     QPushButton *employeeButton;
     QPushButton *systemButton;
+    QGraphicsView *view;
+    QVector<RestTable*> list;
 };
 
 #endif // RESTAURANTLAYOUT_H
