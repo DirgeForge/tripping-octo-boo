@@ -2,7 +2,7 @@
 
 EmployeeMenu::EmployeeMenu()
 {
-    this->setGeometry(100,100,800,800);
+    //this->setGeometry(100,100,800,800);
     this->setStyleSheet("background-color: rgb(255, 137, 53);");
 
     QLabel *Title = new QLabel;
@@ -112,7 +112,16 @@ EmployeeMenu::EmployeeMenu()
     exit->setFont(QFont("",8));
     exit->setText("Exit to Main Menu");
     exit->setStyleSheet("background: white");
+    connect(exit, SIGNAL (released()), this, SLOT (back_button()));
+
+    this->showFullScreen();
 }
+
+void EmployeeMenu::back_button()
+{
+    this->close();
+}
+
 EmployeeMenu::~EmployeeMenu()
 {
 

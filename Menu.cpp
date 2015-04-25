@@ -2,7 +2,7 @@
 #include "ui_Menu.h"
 #include "editmenu.h"
 //Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
-Menu::Menu(int num,QWidget *parent) :
+Menu::Menu(int num, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Menu)
 {
@@ -15,18 +15,7 @@ Menu::Menu(int num,QWidget *parent) :
     this->showFullScreen();
     //masterView->initMenu(); //Doesn't work without Graphics view which a group member
                               // said to get rid of for his restaurant layout to work.
-
-
-    QVector<QStringList> tableOrders;
-
-    QStringList orderFood;
-    orderFood << "item 1";
-    orderFood << "item 2";
-
-    tableOrders.push_back(orderFood);
-
-    ui->OrderList->addItems(tableOrders.at(0));
-
+    tableNum = num;
 }
 
 Menu::~Menu()
@@ -37,12 +26,8 @@ Menu::~Menu()
 int quantMilk = 1;
 void Menu::on_pushButton_clicked()
 {
-
-
-   QString milk = "Milk";// x " + QString::number(quantMilk);
-
-   ui->OrderList->addItem(milk);
-
+    FoodItem * item = new FoodItem("Milk", "Strong Bones!", 0, "", 0.99, 0.0, true);
+    //ui->OrderList->addItem(item->getTitle());
 }
 
 void Menu::on_pushButton_5_pressed()

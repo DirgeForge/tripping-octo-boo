@@ -13,8 +13,8 @@ public:
     EmployeeMenu();
     ~EmployeeMenu();
 
-private:
-
+private slots:
+    void back_button();
 };
 
 #endif // EMPLOYEEMENU_H
