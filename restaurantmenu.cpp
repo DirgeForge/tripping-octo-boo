@@ -76,7 +76,7 @@ RestaurantMenu::RestaurantMenu()
    // m_ui->scrollArea->setWidgetResizable(true);
     //m_ui->scrollArea->setWidget(pjob);
     QScrollArea *breakfastScroll = new QScrollArea(tabMaster);
-    breakfastScroll->setLayout();
+    //breakfastScroll->setLayout();
     breakfastScroll->setWidgetResizable(true);
     breakfastScroll->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 

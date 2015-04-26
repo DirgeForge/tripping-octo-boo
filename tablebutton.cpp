@@ -284,7 +284,7 @@ void TableButton::mouseReleaseEvent(QMouseEvent* event)
 void TableButton::mouseDoubleClickEvent(QMouseEvent *event)
 {
     Q_UNUSED(event);
-    Menu *w = new Menu(this,control);
+    //Menu *w = new Menu(this,control);
    // w->show();
 
 }
