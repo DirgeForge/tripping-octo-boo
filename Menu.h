@@ -41,6 +41,10 @@ private slots:
 
     void on_backButton_clicked();
 
+    void on_PrintReceipt_clicked();
+
+    void on_SendOrderToKitchen_clicked();
+
 private:
     void loadMenu();
     RestTable * table;

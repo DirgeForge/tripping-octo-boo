@@ -4,6 +4,7 @@
 #include "itemdisplay.h"
 #include <QToolButton>
 #include <QGridLayout>
+#include <QMessageBox>
 
 //Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
 Menu::Menu(RestTable * table, MenuController * control, QWidget *parent) : control(control),
@@ -128,6 +129,7 @@ Menu::~Menu()
 void Menu::order(IItem*item)
 {
     ui->OrderList->addItem(QString::fromStdString(item->getTitle()));
+    table->addItem(item);
 }
 
 
@@ -147,4 +149,20 @@ void Menu::on_backButton_clicked()
 {
 
     this->close();
+}
+
+
+
+void Menu::on_PrintReceipt_clicked()
+{
+
+}
+
+void Menu::on_SendOrderToKitchen_clicked()
+{
+    QMessageBox msg;
+    msg.setText(table->sendOrder());
+    msg.setWindowTitle("Order Sent");
+    msg.setStandardButtons(QMessageBox::Ok);
+    msg.exec();
 }

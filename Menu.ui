@@ -942,7 +942,7 @@
 background-color: rgb(160, 162, 255);</string>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>0</number>
       </property>
       <property name="usesScrollButtons">
        <bool>true</bool>
@@ -2237,7 +2237,7 @@ background-color: rgb(160, 162, 255);</string>
      </widget>
     </item>
     <item row="4" column="0" colspan="2">
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="PrintReceipt">
       <property name="minimumSize">
        <size>
         <width>221</width>
@@ -2306,7 +2306,7 @@ background-color: rgb(160, 162, 255);</string>
      </widget>
     </item>
     <item row="3" column="0" colspan="2">
-     <widget class="QPushButton" name="PrintTicket">
+     <widget class="QPushButton" name="SendOrderToKitchen">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
@@ -2334,7 +2334,7 @@ background-color: rgb(160, 162, 255);</string>
        <string notr="true">background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #88d, stop: 0.1 #99e, stop: 0.49 #77c);</string>
       </property>
       <property name="text">
-       <string>Print Ticket</string>
+       <string>Send Order to Kitchen</string>
       </property>
      </widget>
     </item>
@@ -2365,8 +2365,8 @@ background-color: rgb(160, 162, 255);</string>
    </layout>
    <zorder>label_6</zorder>
    <zorder>OrderList</zorder>
-   <zorder>PrintTicket</zorder>
-   <zorder>pushButton_3</zorder>
+   <zorder>SendOrderToKitchen</zorder>
+   <zorder>PrintReceipt</zorder>
    <zorder>ClearTable</zorder>
    <zorder>foodCategories</zorder>
    <zorder>backButton</zorder>

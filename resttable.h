@@ -16,6 +16,9 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 #include <QApplication>
+#include <QVector>
+#include <QStack>
+#include "backend/include/iitem.h"
 #include "backend/include/menucontroller.h"
 
 class RestTable : public QGraphicsItem
@@ -24,6 +27,9 @@ public:
     RestTable();
     RestTable(int tableNumber, bool setBooth, MenuController*);
     void rotate();
+    void addItem(IItem*);
+    QString sendOrder();
+    QVector<IItem*> getOrderList();
     int getTableID() const;
 
     QRectF boundingRect() const Q_DECL_OVERRIDE;
@@ -39,6 +45,8 @@ protected:
 
 private:
     //static int totalTables;
+    QVector<IItem*> orderList;
+    QStack<IItem*> unsentOrder;
     MenuController * control;
 	QRect screen{ QApplication::desktop()->screenGeometry() };
     int tableID;

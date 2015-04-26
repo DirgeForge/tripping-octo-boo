@@ -214,3 +214,25 @@ int RestTable::getTableID() const
 {
     return tableID;
 }
+
+void RestTable::addItem(IItem* item)
+{
+    unsentOrder.push(item);
+}
+
+QString RestTable::sendOrder()
+{
+    QString output = "";
+    while (!unsentOrder.isEmpty())
+    {
+        output += QString::fromStdString(unsentOrder.top()->getTitle()) + "\n";
+        orderList.push_back(unsentOrder.pop());
+    }
+
+    return output;
+}
+
+QVector<IItem*> RestTable::getOrderList()
+{
+    return orderList;
+}
