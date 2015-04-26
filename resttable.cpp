@@ -207,6 +207,7 @@ void RestTable::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
 
-    Menu *showBox = new Menu(tableID, masterView);
+    //Menu *showBox = new Menu(tableID, masterView);
+    RestaurantMenu *showBox = new RestaurantMenu;
     showBox->show();
 }

@@ -9,6 +9,7 @@
 #include "introwindow.h"
 #include "graphicsview.h"
 #include "restaurantlayout.h"
+#include "restaurantmenu.h"
 
 // --- includes for the backend ---
 #include "backend/include/menucontroller.h"
@@ -26,7 +27,7 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
 
-    RestaurantLayout *w = new RestaurantLayout;
+    RestaurantMenu *w = new RestaurantMenu;
 
 //    //IntroWindow *w = new IntroWindow;
     w->show();
