@@ -30,6 +30,7 @@ public slots:
 private:
     QToolButton *itemButton;
     IItem *item;
+    QRect screen {QApplication::desktop()->screenGeometry()};
 };
 
 #endif // ITEMDISPLAY_H

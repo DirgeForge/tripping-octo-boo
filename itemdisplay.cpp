@@ -1,7 +1,7 @@
 #include "itemdisplay.h"
 
 #include <string>
-
+#include <QApplication>
 
 ItemDisplay::ItemDisplay(IItem *item, Menu * menu, QWidget *parent) : item(item), QWidget(parent)
 {
@@ -20,8 +20,8 @@ ItemDisplay::ItemDisplay(IItem *item, Menu * menu, QWidget *parent) : item(item)
 
     QIcon buttonIcon(pixMap);
 
-    QSize btSize(150,150);
-    QSize iconSize(145,115);
+    QSize btSize(screen.width()/6,screen.width()/6);
+    QSize iconSize(screen.width()/6 - 5,screen.width()/6 - 30);
     itemButton->setFixedSize(btSize);
     itemButton->setIconSize(iconSize);
     itemButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);

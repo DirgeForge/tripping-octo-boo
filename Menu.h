@@ -51,6 +51,7 @@ private:
     QVector<QGridLayout*>layout;
     MenuController * control;
     Ui::Menu *ui;
+
     int tableNum;
 };
 
