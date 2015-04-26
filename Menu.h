@@ -13,6 +13,7 @@
 #include <QDesktopWidget>
 #include <QVector>
 #include "graphicsview.h"
+#include "resttable.h"
 
 #include "backend/include/menucontroller.h"
 
@@ -25,7 +26,7 @@ class Menu : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Menu(int, MenuController *, QWidget *parent = 0);
+    explicit Menu(RestTable*, MenuController *, QWidget *parent = 0);
     ~Menu();
 
 public slots:
@@ -42,6 +43,7 @@ private slots:
 
 private:
     void loadMenu();
+    RestTable * table;
     QVector<QGridLayout*>layout;
     MenuController * control;
     Ui::Menu *ui;

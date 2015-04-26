@@ -6,17 +6,17 @@
 #include <QGridLayout>
 
 //Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
-Menu::Menu(int num, MenuController * control, QWidget *parent) : control(control),
+Menu::Menu(RestTable * table, MenuController * control, QWidget *parent) : control(control),
+    table(table),
     QMainWindow(parent),
     ui(new Ui::Menu)
 {
     ui->setupUi(this);
+    tableNum = table->getTableID();
     setWindowTitle("Restaurant Menu");
-    QString qStr = "Table # " + QString::number(num);
+    QString qStr = "Table # " + QString::number(tableNum);
     ui->tableNumDisplay->setText(qStr);
     this->showFullScreen();
-
-    tableNum = num;
 
     loadMenu();
 
@@ -44,7 +44,7 @@ void Menu::loadMenu()
     }
 
 
-    for(size_t i = 0; i < menuSize; ++i)
+    for(int i = 0; i < menuSize; ++i)
     {
         switch (control->at(i)->getCategory())
         {

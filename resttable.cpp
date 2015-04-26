@@ -14,7 +14,7 @@ RestTable::RestTable()
     setAcceptedMouseButtons(Qt::LeftButton);
 }
 
-RestTable::RestTable(int tableNumber ,bool setBooth)
+RestTable::RestTable(int tableNumber ,bool setBooth, MenuController *control) : control(control)
 {
     isBooth = setBooth;
     tableID = tableNumber;
@@ -206,7 +206,11 @@ void RestTable::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 {
     Q_UNUSED(event);
 
-    //Menu *showBox = new Menu(tableID, masterView);
-    RestaurantMenu *showBox = new RestaurantMenu;
+    Menu *showBox = new Menu(this, control);
+
     showBox->show();
+}
+int RestTable::getTableID() const
+{
+    return tableID;
 }

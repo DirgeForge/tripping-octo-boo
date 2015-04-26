@@ -25,6 +25,7 @@
 #include "resttable.h"
 #include "employeemenu.h"
 #include "systemmenu.h"
+#include "backend/include/menucontroller.h"
 
 class RestaurantLayout : public QMainWindow
 {
@@ -37,7 +38,7 @@ private slots:
     void system_clicked();
 
 public:
-    RestaurantLayout();
+    RestaurantLayout(MenuController *);
     ~RestaurantLayout();
     void mouseMoveEvent(QMouseEvent *event);
     void mousePressEvent(QMouseEvent *event);
@@ -49,6 +50,7 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
+    MenuController * control;
     QRect screen {QApplication::desktop()->screenGeometry()};
     int tableCount;
     RestTable *tableHighlighted;

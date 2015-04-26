@@ -1,6 +1,6 @@
 #include "introwindow.h"
 
-IntroWindow::IntroWindow()
+IntroWindow::IntroWindow(RestaurantLayout *r) : restaurantLayout(r)
 {
     this->setStyleSheet("background:rgb(98,177,109);");
 
@@ -332,10 +332,8 @@ void IntroWindow::login_clicked()
     {
         if (numpadDisplay->text() == "11111111")
         {
-            RestaurantLayout *w = new RestaurantLayout;
-            //QMainWindow *w = new QMainWindow;
-            w->setWindowTitle("Next Window");
-            w->show();
+            restaurantLayout->show();
+            this->hide();
         }
         else
         {

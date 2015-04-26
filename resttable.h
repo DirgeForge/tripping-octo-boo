@@ -12,18 +12,19 @@
  */
 
 
-#include<QGraphicsItem>
+#include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
-#include<QGraphicsView>
-#include "graphicsview.h"
-#include "restaurantmenu.h"
+#include <QGraphicsView>
+#include <QApplication>
+#include "backend/include/menucontroller.h"
 
 class RestTable : public QGraphicsItem
 {
 public:
     RestTable();
-	RestTable(int tableNumber, bool setBooth);
+    RestTable(int tableNumber, bool setBooth, MenuController*);
     void rotate();
+    int getTableID() const;
 
     QRectF boundingRect() const Q_DECL_OVERRIDE;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) Q_DECL_OVERRIDE;
@@ -38,6 +39,7 @@ protected:
 
 private:
     //static int totalTables;
+    MenuController * control;
 	QRect screen{ QApplication::desktop()->screenGeometry() };
     int tableID;
     bool isBooth;

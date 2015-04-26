@@ -29,13 +29,14 @@ private slots:
     void login_clicked();
 
 public:
-    IntroWindow();
+    IntroWindow(RestaurantLayout*);
     ~IntroWindow();
 
 protected:
     void paintEvent(QPaintEvent *event);
 
 private:
+    RestaurantLayout *restaurantLayout;
     QRect screen {QApplication::desktop()->screenGeometry()};
     int buttonLength;
     int spacing;

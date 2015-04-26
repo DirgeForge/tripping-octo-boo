@@ -22,10 +22,8 @@ SOURCES += main.cpp \
     introwindow.cpp \
     backend/src/fooditem_serialize.cpp \
     restaurantlayout.cpp \
-    tablebutton.cpp \
     employeemenu.cpp \
-    itemdisplay.cpp \
-    restaurantmenu.cpp
+    itemdisplay.cpp
 
 
 HEADERS  += \
@@ -48,10 +46,8 @@ HEADERS  += \
     backend/include/fooditem_serialize.h \
     backend/include/iserializable.h \
     restaurantlayout.h \
-    tablebutton.h \
     employeemenu.h \
-    itemdisplay.h \
-    restaurantmenu.h
+    itemdisplay.h
 
 FORMS    += \
     systemmenu.ui \
