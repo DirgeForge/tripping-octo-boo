@@ -1,98 +1,98 @@
 #include "restaurantlayout.h"
 
-RestaurantLayout::RestaurantLayout()
+RestaurantLayout::RestaurantLayout(MenuController * control) : control(control)
 {
     tableCount = 0;
 
     QGraphicsScene *scene = new QGraphicsScene(0,0,screen.width(),(26 * screen.height())/32);
 
-    RestTable *table1 = new RestTable(++tableCount,false);
+    RestTable *table1 = new RestTable(++tableCount,false, control);
     scene->addItem(table1);
     table1->setPos((12 * screen.width())/64,(3 * screen.height())/64);
 
-    RestTable *table2 = new RestTable(++tableCount,false);
+    RestTable *table2 = new RestTable(++tableCount,false, control);
     scene->addItem(table2);
     table2->setPos((21 * screen.width())/64,(3 * screen.height())/64);
 
-    RestTable *table3 = new RestTable(++tableCount,false);
+    RestTable *table3 = new RestTable(++tableCount,false, control);
     scene->addItem(table3);
     table3->setPos((12 * screen.width())/64,(11 * screen.height())/64);
 
-    RestTable *table4 = new RestTable(++tableCount,false);
+    RestTable *table4 = new RestTable(++tableCount,false, control);
     scene->addItem(table4);
     table4->setPos((21 * screen.width())/64,(11 * screen.height())/64);
 
-    RestTable *table5 = new RestTable(++tableCount,false);
+    RestTable *table5 = new RestTable(++tableCount,false, control);
     scene->addItem(table5);
     table5->setPos((21 * screen.width())/64,(19 * screen.height())/64);
 
-    RestTable *table6 = new RestTable(++tableCount,false);
+    RestTable *table6 = new RestTable(++tableCount,false, control);
     scene->addItem(table6);
     table6->setPos((12 * screen.width())/64,(23 * screen.height())/64);
     table6->rotate();
 
-    RestTable *table7 = new RestTable(++tableCount,false);
+    RestTable *table7 = new RestTable(++tableCount,false, control);
     scene->addItem(table7);
     table7->setPos((21 * screen.width())/64,(27 * screen.height())/64);
 
     // BOOTHS
 
-    RestTable *table8 = new RestTable(++tableCount,true);
+    RestTable *table8 = new RestTable(++tableCount,true, control);
     scene->addItem(table8);
     table8->setPos((30 * screen.width())/64,(3 * screen.height())/64);
 
-    RestTable *table9 = new RestTable(++tableCount,true);
+    RestTable *table9 = new RestTable(++tableCount,true, control);
     scene->addItem(table9);
     table9->setPos((30 * screen.width())/64,((8*screen.height())/64)+ table8->pos().y());
 
-    RestTable *table10 = new RestTable(++tableCount,true);
+    RestTable *table10 = new RestTable(++tableCount,true, control);
     scene->addItem(table10);
     table10->setPos((30 * screen.width())/64,((8*screen.height())/64)+ table9->pos().y());
 
-    RestTable *table11 = new RestTable(++tableCount,true);
+    RestTable *table11 = new RestTable(++tableCount,true, control);
     scene->addItem(table11);
     table11->setPos((30 * screen.width())/64,((8*screen.height())/64)+ table10->pos().y());
 
 //    // rotate booths
 
-    RestTable *table12 = new RestTable(++tableCount,true);
+    RestTable *table12 = new RestTable(++tableCount,true, control);
     scene->addItem(table12);
     table12->rotate();
     table12->setPos((12 * screen.width())/64,((81 * screen.height())/128));
 
-    RestTable *table13 = new RestTable(++tableCount,true);
+    RestTable *table13 = new RestTable(++tableCount,true, control);
     scene->addItem(table13);
     table13->rotate();
     table13->setPos(table12->x()+((8*screen.height())/64),table12->y());
 
-    RestTable *table14 = new RestTable(++tableCount,true);
+    RestTable *table14 = new RestTable(++tableCount,true, control);
     scene->addItem(table14);
     table14->rotate();
     table14->setPos(table13->x()+((8*screen.height())/64),table13->y());
 
-    RestTable *table15 = new RestTable(++tableCount,true);
+    RestTable *table15 = new RestTable(++tableCount,true, control);
     scene->addItem(table15);
     table15->rotate();
     table15->setPos(table14->x()+((8*screen.height())/64),table14->y());
 
 //    // tables on the side
 
-    RestTable *table16 = new RestTable(++tableCount,false);
+    RestTable *table16 = new RestTable(++tableCount,false, control);
     scene->addItem(table16);
     table16->rotate();
     table16->setPos((42 * screen.width())/64,(3 * screen.height())/64);
 
-    RestTable *table17 = new RestTable(++tableCount,false);
+    RestTable *table17 = new RestTable(++tableCount,false, control);
     scene->addItem(table17);
     table17->rotate();
     table17->setPos(table16->x(),table16->y() + (12 * screen.height())/64);
 
-    RestTable *table18 = new RestTable(++tableCount,false);
+    RestTable *table18 = new RestTable(++tableCount,false, control);
     scene->addItem(table18);
     table18->rotate();
     table18->setPos(table17->x(),table17->y() + (12 * screen.height())/64);
 
-    RestTable *table19 = new RestTable(++tableCount,false);
+    RestTable *table19 = new RestTable(++tableCount,false, control);
     scene->addItem(table19);
     table19->rotate();
     table19->setPos(table18->x(),table18->y() + (12 * screen.height())/64);

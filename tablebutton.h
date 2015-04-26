@@ -22,6 +22,8 @@ public:
     ~TableButton();
 
     void rotate();
+    int getTableID() const;
+
     // QMouseEvent
     void mouseMoveEvent(QMouseEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;

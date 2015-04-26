@@ -30,10 +30,14 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
 
+<<<<<<< HEAD
     //Menu *w = new Menu(5, control);
     RestaurantMenu *w = new RestaurantMenu;
+=======
+    RestaurantLayout *r = new RestaurantLayout(control);
+>>>>>>> origin/master
 
-//    //IntroWindow *w = new IntroWindow;
+    IntroWindow *w = new IntroWindow(r);
     w->show();
 
 
