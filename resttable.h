@@ -16,6 +16,7 @@
 #include <QGraphicsPixmapItem>
 #include<QGraphicsView>
 #include "graphicsview.h"
+#include "restaurantmenu.h"
 
 class RestTable : public QGraphicsItem
 {
