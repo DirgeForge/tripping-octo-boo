@@ -6,7 +6,7 @@
 #include <QGridLayout>
 
 //Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
-Menu::Menu(int num, QWidget *parent) :
+Menu::Menu(int num, MenuController * control, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Menu)
 {
@@ -14,20 +14,20 @@ Menu::Menu(int num, QWidget *parent) :
     setWindowTitle("Restaurant Menu");
     QString qStr = "Table # " + QString::number(num);
     ui->tableNumDisplay->setText(qStr);
-    //ui->foodCategories->setStyleSheet("QTabBar::tab {height: 200px, width: 200px; }");
-    //ui->foodCategories->tabBar()->setStyleSheet("background: blue");
     this->showFullScreen();
-    //masterView->initMenu(); //Doesn't work without Graphics view which a group member
-                              // said to get rid of for his restaurant layout to work.
+
     tableNum = num;
 
-    FoodItem test;
-    test.setImgPath("C:/PirateSoft/Koala.jpg");
-    ItemDisplay *testDisp = new ItemDisplay(test);
-
+    int size = control->getSize();
     QGridLayout *layout = new QGridLayout;
-    layout->addWidget(testDisp->getButton(),0,0);
+    ItemDisplay *itemDisp;
 
+    for(int i = 0; i <size; ++i)
+    {
+        itemDisp = new ItemDisplay(control->at(i));
+        layout->addWidget(itemDisp->getButton(),i/5,i%5);
+
+    }
     ui->scrollAreaWidgetContents->setLayout(layout);
 
 

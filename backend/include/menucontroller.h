@@ -10,12 +10,12 @@ class MenuController : public IMenuController
 {
 private:
 	MenuModel * menuModel;
-	IViewable * view;
-	//GraphicsView * view;
+
+
 
 public:
-	//MenuController(MenuModel*);
-	MenuController(MenuModel *, IViewable *);
+    MenuController(MenuModel*);
+    //MenuController(MenuModel *, IViewable *);
 	IItem * at(int) const override;
 	void add(IItem*) override;
 	void remove(int) override;

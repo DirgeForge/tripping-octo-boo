@@ -5,12 +5,14 @@
 #include <QObject>
 #include <QPushButton>
 #include <QLabel>
+#include <QCoreApplication>
+#include <QFile>
 #include "backend/include/fooditem.h"
 
 class ItemDisplay
 {
 public:
-    ItemDisplay(const FoodItem& item);
+    ItemDisplay(IItem* item);
     QPushButton *getButton() const;
     QLabel *getLabel() const;
     ~ItemDisplay();

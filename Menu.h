@@ -13,6 +13,7 @@
 #include <QDesktopWidget>
 #include <QVector>
 #include "graphicsview.h"
+#include "backend/include/menucontroller.h"
 
 namespace Ui {
 class Menu;
@@ -24,7 +25,7 @@ class Menu : public QMainWindow
 
 public:
     // REMOVE GRAPHICSVIEW
-    explicit Menu(int, /*GraphicsView*,*/ QWidget *parent = 0);
+    explicit Menu(int, MenuController *, QWidget *parent = 0);
     ~Menu();
 
 private slots:

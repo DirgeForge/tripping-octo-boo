@@ -27,7 +27,7 @@ public:
 public:
     void initBackend()
     {
-        this->control = new MenuController(model, this);
+        this->control = new MenuController(model);
     }
     void update()
     {

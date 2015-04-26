@@ -1,11 +1,17 @@
 #include "itemdisplay.h"
+#include <string>
 
-ItemDisplay::ItemDisplay(const FoodItem & item)
+ItemDisplay::ItemDisplay(IItem *item)
 {
     itemButton = new QPushButton;
     itemLabel = new QLabel;
 
-    QPixmap pixMap(QString::fromStdString(item.getImgPath()));
+    QPixmap pixMap;
+    std::string loadtest;
+    loadtest = item->getImgPath();
+
+    pixMap.load(QCoreApplication::applicationDirPath() + QString::fromStdString(item->getImgPath()));
+
     QIcon buttonIcon(pixMap);
 
     QSize btSize(150,150);
@@ -14,9 +20,11 @@ ItemDisplay::ItemDisplay(const FoodItem & item)
     itemButton->setIconSize(iconSize);
     itemButton->setIcon(buttonIcon);
 
-
-
-
+/*
+    QString test = "test-";
+    test.append(QString::fromStdString(item->getImgPath()));
+    itemButton->setText(test);
+*/
 }
 
 QPushButton *ItemDisplay::getButton() const

@@ -33,7 +33,7 @@ void FoodItem_Serialize::unserialize(std::istream &in, void* fooditem)
 	{
 		while (token != tokenOrder[i + 1])
 		{
-			buffer[i] += token + " ";
+            buffer[i] += token;
 			in >> token;
 		}
 		i++;

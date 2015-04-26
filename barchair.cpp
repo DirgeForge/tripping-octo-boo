@@ -5,7 +5,6 @@
 #include "Menu.h"
 
 int BarChair::totalChairs(0);
-GraphicsView *BarChair::masterView = NULL;
 
 BarChair::BarChair()
 {

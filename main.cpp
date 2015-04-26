@@ -24,10 +24,13 @@
 
 int main(int argc, char *argv[])
 {
+    MenuModel * model = new MenuModel;
+    MenuController *control = new MenuController(model);
+
     QApplication app(argc, argv);
 
 
-    RestaurantMenu *w = new RestaurantMenu;
+    Menu *w = new Menu(5, control);
 
 //    //IntroWindow *w = new IntroWindow;
     w->show();

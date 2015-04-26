@@ -1,5 +1,6 @@
 #include "../include/fooditem.h"
 #include "../include/fooditem_serialize.h"
+#include <QString>
 
 FoodItem::FoodItem()
 {

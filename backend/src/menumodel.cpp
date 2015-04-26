@@ -4,9 +4,16 @@
 #include "../include/menumodel.h"
 #include "../include/fooditem.h"
 #include "../include/fooditem_serialize.h"
+#include <QString>
+#include <QCoreApplication>
 
-MenuModel::MenuModel() : filepath(":/res/MenuDB.txt")
+MenuModel::MenuModel() : filepath("C:/PirateSoft/MenuDB.txt")
 {
+    // SHOULD CHANGE TO APP DIR DOESN'T ????????
+    //QString qs(QCoreApplication::applicationDirPath());
+    //filepath = qs.toStdString() + "C:/PirateSoft/MenuDB.txt";
+
+
     FoodItem_Serialize fItemS;
     serializer = std::make_shared<FoodItem_Serialize>( fItemS);
     this->initialize();

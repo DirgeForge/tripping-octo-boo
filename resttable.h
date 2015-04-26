@@ -21,7 +21,6 @@
 class RestTable : public QGraphicsItem
 {
 public:
-    static GraphicsView *masterView;
     RestTable();
 	RestTable(int tableNumber, bool setBooth);
     void rotate();

@@ -4,8 +4,7 @@
 #include "resttable.h"
 #include "Menu.h"
 
-//int RestTable::totalTables(0);
-GraphicsView *RestTable::masterView = NULL;
+// int RestTable::totalTables(0);
 
 RestTable::RestTable()
 {
