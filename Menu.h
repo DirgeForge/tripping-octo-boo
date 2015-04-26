@@ -41,6 +41,8 @@ private slots:
     void on_backButton_clicked();
 
 private:
+    void loadMenu();
+    QVector<QGridLayout*>layout;
     MenuController * control;
     Ui::Menu *ui;
     int tableNum;

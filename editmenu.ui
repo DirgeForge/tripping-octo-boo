@@ -507,6 +507,11 @@
     </property>
     <item>
      <property name="text">
+      <string>Beverages</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>Appetizers</string>
      </property>
     </item>
@@ -538,11 +543,6 @@
     <item>
      <property name="text">
       <string>Kids</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Beverages</string>
      </property>
     </item>
    </widget>
