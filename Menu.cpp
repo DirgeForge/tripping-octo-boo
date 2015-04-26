@@ -1,6 +1,10 @@
 #include "Menu.h"
 #include "ui_Menu.h"
 #include "editmenu.h"
+#include "itemdisplay.h"
+#include <QPushButton>
+#include <QGridLayout>
+
 //Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
 Menu::Menu(int num, QWidget *parent) :
     QMainWindow(parent),
@@ -16,6 +20,17 @@ Menu::Menu(int num, QWidget *parent) :
     //masterView->initMenu(); //Doesn't work without Graphics view which a group member
                               // said to get rid of for his restaurant layout to work.
     tableNum = num;
+
+    FoodItem test;
+    test.setImgPath("C:/PirateSoft/Koala.jpg");
+    ItemDisplay *testDisp = new ItemDisplay(test);
+
+    QGridLayout *layout = new QGridLayout;
+    layout->addWidget(testDisp->getButton(),0,0);
+
+    ui->scrollAreaWidgetContents->setLayout(layout);
+
+
 }
 
 Menu::~Menu()
