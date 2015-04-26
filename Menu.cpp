@@ -2,7 +2,7 @@
 #include "ui_Menu.h"
 #include "editmenu.h"
 #include "itemdisplay.h"
-#include <QPushButton>
+#include <QToolButton>
 #include <QGridLayout>
 
 //Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
@@ -24,10 +24,13 @@ Menu::Menu(int num, MenuController * control, QWidget *parent) :
 
     for(int i = 0; i <size; ++i)
     {
-        itemDisp = new ItemDisplay(control->at(i));
+        itemDisp = new ItemDisplay(control->at(i), this);
         layout->addWidget(itemDisp->getButton(),i/5,i%5);
 
+
     }
+
+
     ui->scrollAreaWidgetContents->setLayout(layout);
 
 
@@ -39,6 +42,12 @@ Menu::~Menu()
 }
 
 int quantMilk = 1;
+
+void Menu::order(IItem*item)
+{
+    ui->OrderList->addItem(QString::fromStdString(item->getTitle()));
+}
+
 void Menu::on_pushButton_clicked()
 {
     FoodItem * item = new FoodItem("Milk", "Strong Bones!", 0, "", 0.99, 0.0, true);

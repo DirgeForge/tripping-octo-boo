@@ -58,7 +58,7 @@ void EditMenu::on_save_changes_clicked()
     item->setPrice(ui->editPrice->value());
     item->setTitle(ui->editName->text().toStdString());
 
-    std::ofstream saveToMenu(":/res/MenuDB.txt", std::ios::out | std::ios::app);
+    std::ofstream saveToMenu("C:PirateSoft/MenuDB.txt", std::ios::out | std::ios::app);
     FoodItem_Serialize output;
     output.serialize(saveToMenu,item);
     saveToMenu.close();

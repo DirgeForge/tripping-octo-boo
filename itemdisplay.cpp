@@ -1,44 +1,52 @@
 #include "itemdisplay.h"
+#include "Menu.h"
 #include <string>
 
-ItemDisplay::ItemDisplay(IItem *item)
+
+ItemDisplay::ItemDisplay(IItem *item, Menu * menu, QWidget *parent) : item(item), QWidget(parent)
 {
-    itemButton = new QPushButton;
-    itemLabel = new QLabel;
+    itemButton = new QToolButton;
+    connect(itemButton, SIGNAL(clicked()),this,SLOT(order()));
+    connect(this, SIGNAL(sendOrder(IItem*)), menu, SLOT(order(IItem*)));
+
 
     QPixmap pixMap;
     std::string loadtest;
     loadtest = item->getImgPath();
+
+
 
     pixMap.load(QCoreApplication::applicationDirPath() + QString::fromStdString(item->getImgPath()));
 
     QIcon buttonIcon(pixMap);
 
     QSize btSize(150,150);
-    QSize iconSize(145,145);
+    QSize iconSize(145,115);
     itemButton->setFixedSize(btSize);
     itemButton->setIconSize(iconSize);
+    itemButton->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     itemButton->setIcon(buttonIcon);
+    itemButton->setText(QString::fromStdString(item->getTitle()));
 
-/*
-    QString test = "test-";
-    test.append(QString::fromStdString(item->getImgPath()));
-    itemButton->setText(test);
-*/
+
 }
 
-QPushButton *ItemDisplay::getButton() const
+QToolButton *ItemDisplay::getButton() const
 {
     return itemButton;
-}
-QLabel *ItemDisplay::getLabel() const
-{
-    return itemLabel;
 }
 
 ItemDisplay::~ItemDisplay()
 {
     delete itemButton;
-    delete itemLabel;
+}
+IItem * ItemDisplay::getItem() const
+{
+    return item;
+}
+
+void ItemDisplay::order()
+{
+    emit sendOrder(item);
 }
 

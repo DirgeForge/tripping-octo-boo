@@ -3,23 +3,32 @@
 
 
 #include <QObject>
-#include <QPushButton>
+#include <QToolButton>
 #include <QLabel>
 #include <QCoreApplication>
 #include <QFile>
 #include "backend/include/fooditem.h"
+#include "Menu.h"
 
-class ItemDisplay
+class ItemDisplay : public QWidget
 {
+    Q_OBJECT
 public:
-    ItemDisplay(IItem* item);
-    QPushButton *getButton() const;
-    QLabel *getLabel() const;
+    ItemDisplay(IItem* item, Menu *menu, QWidget *parent=0);
+    IItem * getItem() const;
+    QToolButton *getButton() const;
     ~ItemDisplay();
 
+signals:
+    void sendOrder(IItem*);
+
+public slots:
+    void order();
+
+
 private:
-    QPushButton *itemButton;
-    QLabel *itemLabel;
+    QToolButton *itemButton;
+    IItem *item;
 };
 
 #endif // ITEMDISPLAY_H

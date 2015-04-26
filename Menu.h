@@ -24,9 +24,11 @@ class Menu : public QMainWindow
     Q_OBJECT
 
 public:
-    // REMOVE GRAPHICSVIEW
     explicit Menu(int, MenuController *, QWidget *parent = 0);
     ~Menu();
+
+public slots:
+    void order(IItem *item);
 
 private slots:
 
