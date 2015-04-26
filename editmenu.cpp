@@ -5,9 +5,10 @@
 
 #include "qmessagebox.h"
 #include <QFileDialog>
+#include <QCoreApplication>
 
 
-EditMenu::EditMenu(QWidget *parent) :
+EditMenu::EditMenu(MenuController *control, QWidget *parent) : control(control),
     QMainWindow(parent),
     ui(new Ui::EditMenu)
 {
@@ -18,7 +19,8 @@ EditMenu::EditMenu(QWidget *parent) :
     item = new FoodItem;
 
 }
-EditMenu::EditMenu(const FoodItem & currentItem, QWidget *parent) :
+EditMenu::EditMenu(MenuController * control, const FoodItem & currentItem, QWidget *parent) :
+    control(control),
     QMainWindow(parent),
     ui(new Ui::EditMenu)
 {
@@ -58,10 +60,8 @@ void EditMenu::on_save_changes_clicked()
     item->setPrice(ui->editPrice->value());
     item->setTitle(ui->editName->text().toStdString());
 
-    std::ofstream saveToMenu("C:PirateSoft/MenuDB.txt", std::ios::out | std::ios::app);
-    FoodItem_Serialize output;
-    output.serialize(saveToMenu,item);
-    saveToMenu.close();
+    control->add(item);
+    control->update();
 
     this->close();
 }
@@ -94,10 +94,12 @@ void EditMenu::setImage(const QString & imagePath)
     ui->imgDisplay->setScene(scene);
     ui->imgDisplay->fitInView(scene->itemsBoundingRect(), Qt::KeepAspectRatio);
 
-    QString saveName = ui->editName->text();
+    QString saveName = "/";
+    saveName.append(ui->editName->text());
     saveName.append(".jpg");
-    imageObject->save(saveName);
+    imageObject->save(QCoreApplication::applicationDirPath()+ saveName);
     item->setImgPath(saveName.toStdString());
+
 }
 
 void EditMenu::on_remove_item_clicked()

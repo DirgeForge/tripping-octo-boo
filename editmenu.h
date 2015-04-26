@@ -4,6 +4,7 @@
 #include "Menu.h"
 #include "backend/include/fooditem.h"
 #include "backend/include/fooditem_serialize.h"
+#include "backend/include/menucontroller.h"
 
 #include <QMainWindow>
 
@@ -16,8 +17,8 @@ class EditMenu : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit EditMenu(QWidget *parent = 0);
-    explicit EditMenu(const FoodItem&, QWidget *parent = 0);
+    explicit EditMenu(MenuController *, QWidget *parent = 0);
+    explicit EditMenu(MenuController *, const FoodItem&, QWidget *parent = 0);
     ~EditMenu();
 
 private slots:
@@ -36,6 +37,7 @@ private slots:
 
 private:
     void setImage(const QString &imagePath);
+    MenuController * control;
     Ui::EditMenu *ui;
     QMainWindow *a;
     FoodItem *item;

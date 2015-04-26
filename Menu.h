@@ -41,7 +41,7 @@ private slots:
     void on_backButton_clicked();
 
 private:
-
+    MenuController * control;
     Ui::Menu *ui;
     int tableNum;
 };

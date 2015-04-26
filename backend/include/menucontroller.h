@@ -20,6 +20,7 @@ public:
 	void add(IItem*) override;
 	void remove(int) override;
 	int getSize() const override;
+    void update();
 	void addAllergen(int, const std::string&);
 
 	void reset(int) const override;

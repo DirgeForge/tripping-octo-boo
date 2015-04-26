@@ -72,8 +72,13 @@ void MenuController::print() const
 		std::cout << item->getTitle() << " " << item->getCategory() << " " << item->getDesc() << " " << item->getImgPath() << std::endl;
 	}
 }
+void MenuController::update()
+{
+    menuModel->~MenuModel();
+    menuModel = new MenuModel;
+}
 
 MenuController::~MenuController()
 {
-
+    menuModel->~MenuModel();
 }

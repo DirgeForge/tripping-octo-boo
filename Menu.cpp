@@ -7,7 +7,7 @@
 #include <vector>
 
 //Menu::Menu(int num, GraphicsView *masterView, QWidget *parent) :
-Menu::Menu(int num, MenuController * control, QWidget *parent) :
+Menu::Menu(int num, MenuController * control, QWidget *parent) : control(control),
     QMainWindow(parent),
     ui(new Ui::Menu)
 {
@@ -57,7 +57,7 @@ void Menu::on_ClearTable_clicked()
 
 void Menu::on_addItem_clicked()
 {
-    EditMenu * w = new EditMenu();
+    EditMenu * w = new EditMenu(control);
     w->show();
 }
 
