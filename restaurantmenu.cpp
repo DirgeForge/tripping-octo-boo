@@ -47,6 +47,31 @@ RestaurantMenu::RestaurantMenu()
     orderList->setStyleSheet("background: green");
     orderList->setGeometry(screen.width()/32,(6*screen.height())/32,screen.width()/6,screen.height()/2);
 
+    breakfast = new QWidget;
+    //breakfast->setParent(this);
+    breakfast->setStyleSheet("background: green");
+
+    QScrollArea *breakfastScroll = new QScrollArea(breakfast);
+    breakfastScroll->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    //breakfastScroll->setGeometry(0,0,tabMaster->width(),tabMaster->height()*2);
+
+    lunch = new QWidget;
+    //lunch->setParent(this);
+    lunch->setStyleSheet("background: yellow");
+
+    tabMaster = new QTabWidget;
+    tabMaster->setParent(this);
+    //tab->setStyleSheet("background: yellow");
+    tabMaster->setGeometry((8*screen.width())/32,screen.height()/32,(22*screen.width())/32,(30*screen.height())/32);
+    tabMaster->addTab(breakfastScroll,"Breakfast");
+    tabMaster->addTab(lunch,"Lunch");
+
+    QPushButton *a = new QPushButton;
+    a->setParent(breakfastScroll);
+    a->setGeometry(tabMaster->width()/2,tabMaster->height()/2,100,100);
+    a->setText("HI");
+    a->setStyleSheet("background: orange");
+
     /////////////////////// BUTTON TRIGGERS ////////////////////////////////////
 
     QObject::connect(back, SIGNAL(clicked()), this, SLOT(close()));

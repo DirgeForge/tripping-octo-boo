@@ -7,6 +7,10 @@
 #include <QLabel>
 #include <QListWidget>
 #include <QDesktopWidget>
+#include <QTabWidget>
+#include <QWidget>
+#include <QScrollArea>
+#include <QPalette>
 
 class RestaurantMenu : public QMainWindow
 {
@@ -23,6 +27,10 @@ private:
     QPushButton *printRecipit;
     QPushButton *removeItem;
     QPushButton *order;
+
+    QTabWidget *tabMaster;
+    QWidget *breakfast;
+    QWidget *lunch;
 
     QLabel *tableNumber;
     QLabel *orderTitle;
