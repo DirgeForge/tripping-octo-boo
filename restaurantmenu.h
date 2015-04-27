@@ -11,6 +11,7 @@
 #include <QWidget>
 #include <QScrollArea>
 #include <QPalette>
+#include <QGridLayout>
 
 class RestaurantMenu : public QMainWindow
 {
@@ -29,8 +30,7 @@ private:
     QPushButton *order;
 
     QTabWidget *tabMaster;
-    QWidget *breakfast;
-    QWidget *lunch;
+    int buttonLength {(15*screen.width())/128};
 
     QLabel *tableNumber;
     QLabel *orderTitle;
