@@ -30,17 +30,21 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
 
-   // RestaurantLayout *r = new RestaurantLayout(control);
+    RestaurantLayout *r = new RestaurantLayout(control);
+    r->show();
 
-   // IntroWindow *w = new IntroWindow(r);
-   // w->show();
+    //IntroWindow *w = new IntroWindow(r);
+    //w->show();
 
+
+
+    /*
     ////////////////////////TESTING/////////////////////////
     RestTable *rt = new RestTable(5,false,control);
 
     Menu *m = new Menu(rt,control);
     m->show();
-
+*/
 
 
     return app.exec();

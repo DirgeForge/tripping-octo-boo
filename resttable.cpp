@@ -236,3 +236,8 @@ QVector<IItem*> RestTable::getOrderList()
 {
     return orderList;
 }
+
+void RestTable::clearUnsent()
+{
+    unsentOrder.clear();
+}

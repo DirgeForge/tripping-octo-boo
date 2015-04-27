@@ -29,6 +29,7 @@ public:
     void rotate();
     void addItem(IItem*);
     QString sendOrder();
+    void clearUnsent();
     QVector<IItem*> getOrderList();
     int getTableID() const;
 

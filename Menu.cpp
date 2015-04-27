@@ -25,6 +25,12 @@ Menu::Menu(RestTable * table, MenuController * control, QWidget *parent) : contr
 
 void Menu::loadMenu()
 {
+    size_t orderSize = table->getOrderList().size();
+    for( size_t i = 0; i<orderSize; ++i)
+    {
+        ui->OrderList->addItem(QString::fromStdString(table->getOrderList().at(i)->getTitle()));
+    }
+
     size_t menuSize = control->getSize();
     ItemDisplay *add;
 
@@ -147,6 +153,7 @@ void Menu::on_addItem_clicked()
 
 void Menu::on_backButton_clicked()
 {
+    table->clearUnsent();
 
     this->close();
 }
